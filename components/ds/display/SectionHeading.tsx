@@ -15,7 +15,7 @@ export function SectionHeading({ overline, title, lead, align = 'left', onDark, 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: alignments[align], textAlign: align, gap: 'var(--space-4)', maxWidth: 720 }}>
       {overline && (
-        <span style={{ font: 'var(--text-overline)', letterSpacing: 'var(--tracking-overline)', textTransform: 'uppercase', color: onDark ? 'var(--accent)' : 'var(--accent-strong)' }}>
+        <span style={{ font: 'var(--text-overline)', letterSpacing: 'var(--tracking-overline)', textTransform: 'uppercase', color: onDark ? 'var(--accent)' : 'var(--accent-text)' }}>
           {overline}
         </span>
       )}

@@ -16,10 +16,11 @@ import { faqPageSchema } from '@/lib/schema';
 import { HOME } from '@/content/data/home';
 import { AREAS } from '@/content/data/areas';
 import { SITE } from '@/content/data/site';
+import { isPending } from '@/content/data/pending';
 
 export default function Home() {
   // FAQ com resposta pendente fica fora do JSON-LD (não emitir placeholder para buscadores).
-  const faqSchema = faqPageSchema(HOME.faq.itens.filter((f) => !f.answer.includes('[PENDENTE')));
+  const faqSchema = faqPageSchema(HOME.faq.itens.filter((f) => !isPending(f.answer)));
 
   return (
     <>

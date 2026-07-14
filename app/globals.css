@@ -24,12 +24,15 @@
   --surface-dark-raised: var(--verde-800);
   --text-title: var(--verde-900);
   --text-body: #2f3d36;
-  --text-muted: #6b7a71;
+  /* Escurecido de #6b7a71 para cumprir WCAG AA (4.5:1) sobre areia-100 */
+  --text-muted: #606e66;
   --text-on-dark: var(--areia-100);
   --text-on-dark-muted: #b9c6be;
   --accent: var(--dourado-500);
   --accent-strong: var(--dourado-600);
   --accent-soft: var(--dourado-300);
+  /* Dourado para TEXTO sobre fundos claros — dourado-600 falha WCAG (1.9:1); este passa 4.5:1 */
+  --accent-text: #836439;
   --border-subtle: #ddd6cb;
   --border-on-dark: rgba(239, 235, 229, 0.18);
   --focus-ring: rgba(229, 183, 117, 0.45);
@@ -339,7 +342,7 @@ ol[role='list'] {
 }
 
 .prose li::marker {
-  color: var(--accent-strong);
+  color: var(--accent-text);
   font-weight: 600;
 }
 
@@ -358,7 +361,7 @@ ol[role='list'] {
 }
 
 .prose a {
-  color: var(--accent-strong);
+  color: var(--accent-text);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color var(--transition-fast);

@@ -34,7 +34,7 @@ export function SiteHeader() {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24,
         }}
       >
-        <Link href="/" aria-label="Fava e Vitorino Advocacia — página inicial" style={{ textDecoration: 'none' }}>
+        <Link href="/" style={{ textDecoration: 'none' }}>
           <SiteWordmark />
         </Link>
 

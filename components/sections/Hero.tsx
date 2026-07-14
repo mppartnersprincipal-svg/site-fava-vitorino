@@ -26,7 +26,7 @@ export function Hero({ overline, title, lead, actions }: HeroProps) {
         aria-hidden="true"
         width={567}
         height={510}
-        priority
+        loading="lazy"
         style={{
           position: 'absolute',
           right: '-4%',

@@ -5,6 +5,11 @@
  *
  * Itens `null` simplesmente não são renderizados até existirem.
  */
+/** true se o texto ainda contém marcador de pendência (usado para filtrar JSON-LD, etc.). */
+export function isPending(text: string): boolean {
+  return text.includes('[PENDENTE');
+}
+
 export const PENDING = {
   /** Endereço completo em texto (rua, número, cidade, UF, CEP). Fica FORA do JSON-LD até existir. */
   endereco: '[PENDENTE: endereço completo do escritório]',

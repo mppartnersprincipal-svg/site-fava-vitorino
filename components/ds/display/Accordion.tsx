@@ -46,7 +46,7 @@ export function Accordion({ items = [], single = true }: AccordionProps) {
               >
                 {it.title}
                 <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style={{ flex: 'none', transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform var(--transition-fast)' }}>
-                  <path d="M2 4l4 4 4-4" fill="none" stroke="var(--accent-strong)" strokeWidth="1.5" />
+                  <path d="M2 4l4 4 4-4" fill="none" stroke="var(--accent-text)" strokeWidth="1.5" />
                 </svg>
               </button>
             </h3>

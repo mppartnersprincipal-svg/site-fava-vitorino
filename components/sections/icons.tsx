@@ -33,5 +33,5 @@ export const ICONS: Record<string, LucideIcon> = {
 export function SectionIcon({ name, size = 24 }: { name: string; size?: number }) {
   const Icon = ICONS[name];
   if (!Icon) return null;
-  return <Icon size={size} strokeWidth={1.5} aria-hidden="true" style={{ color: 'var(--accent-strong)' }} />;
+  return <Icon size={size} strokeWidth={1.5} aria-hidden="true" style={{ color: 'var(--accent-text)' }} />;
 }

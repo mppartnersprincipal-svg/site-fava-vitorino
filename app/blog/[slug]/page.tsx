@@ -71,7 +71,7 @@ export default async function BlogPostPage({ params }: Params) {
               font: 'var(--text-overline)',
               letterSpacing: 'var(--tracking-overline)',
               textTransform: 'uppercase',
-              color: 'var(--accent-strong)',
+              color: 'var(--accent-text)',
               textDecoration: 'none',
             }}
           >

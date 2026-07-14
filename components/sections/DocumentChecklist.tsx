@@ -15,7 +15,7 @@ export function DocumentChecklist({ itens, nota }: DocumentChecklistProps) {
         <ul role="list" style={{ margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
           {itens.map((doc) => (
             <li key={doc} style={{ display: 'flex', gap: 'var(--space-3)', alignItems: 'flex-start' }}>
-              <Check size={18} strokeWidth={2} aria-hidden="true" style={{ color: 'var(--accent-strong)', flex: 'none', marginTop: 3 }} />
+              <Check size={18} strokeWidth={2} aria-hidden="true" style={{ color: 'var(--accent-text)', flex: 'none', marginTop: 3 }} />
               <span style={{ font: 'var(--text-body-md)', color: 'var(--text-body)' }}>{doc}</span>
             </li>
           ))}

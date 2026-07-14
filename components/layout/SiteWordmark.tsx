@@ -23,8 +23,10 @@ export function SiteWordmark({ onDark, height = 34 }: SiteWordmarkProps) {
     );
   }
   const symbolHeight = height - 10;
+  // role="img": o wordmark é o logotipo da marca composto em texto — isento da
+  // exigência de contraste (WCAG 1.4.3, exceção para logotipos).
   return (
-    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 12, flex: 'none' }}>
+    <span role="img" aria-label="Fava e Vitorino Advocacia" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, flex: 'none' }}>
       <span style={{ background: 'var(--verde-900)', borderRadius: 'var(--radius-sm)', padding: 6, display: 'inline-flex' }}>
         <Image
           src="/images/logos/logo-simbolo-transparente.png"
@@ -35,7 +37,7 @@ export function SiteWordmark({ onDark, height = 34 }: SiteWordmarkProps) {
           style={{ height: symbolHeight, width: 'auto' }}
         />
       </span>
-      <span style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
+      <span aria-hidden="true" style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
         <span style={{ font: '600 15px/1.2 var(--font-title)', letterSpacing: '0.14em', color: 'var(--accent-strong)', whiteSpace: 'nowrap' }}>
           FAVA E VITORINO
         </span>

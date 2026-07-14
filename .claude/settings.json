@@ -17,7 +17,10 @@
       "Bash(node -e 'const r=require\\(process.argv[1]\\);const a=r.audits;console.log\\(JSON.stringify\\({performance:Math.round\\(r.categories.performance.score*100\\),lcp:a['\\\\''largest-contentful-paint'\\\\''].displayValue,cls:a['\\\\''cumulative-layout-shift'\\\\''].displayValue,tbt:a['\\\\''total-blocking-time'\\\\''].displayValue},null,2\\)\\)' __TRACKED_VAR__/lh-home2.json)",
       "PowerShell($conns = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue; if \\($conns\\) { $conns | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -Confirm:$false } }; Start-Process -FilePath \"npm\" -ArgumentList \"start\" -WorkingDirectory \"c:\\\\Users\\\\User\\\\Desktop\\\\Site - Fava e Vitorino\" -WindowStyle Hidden; Start-Sleep -Seconds 4; \\(Invoke-WebRequest -Uri \"http://localhost:3000/sobre\" -UseBasicParsing -TimeoutSec 15\\).StatusCode)",
       "PowerShell($conns = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue; if \\($conns\\) { $conns | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -Confirm:$false } }; Write-Output \"port freed\")",
-      "PowerShell($conns = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue; if \\($conns\\) { $conns | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -Confirm:$false } }; Write-Output \"ok\")"
+      "PowerShell($conns = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue; if \\($conns\\) { $conns | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -Confirm:$false } }; Write-Output \"ok\")",
+      "Bash('C:\\\\Users\\\\User/.claude/skills/gstack/browse/dist/browse' press *)",
+      "Bash(curl -s http://localhost:3000/sitemap.xml)",
+      "Bash(curl -s http://localhost:3000/robots.txt)"
     ]
   }
 }

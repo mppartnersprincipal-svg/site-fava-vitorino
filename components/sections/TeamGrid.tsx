@@ -17,7 +17,7 @@ const labelStyle: React.CSSProperties = {
   font: 'var(--text-overline)',
   letterSpacing: 'var(--tracking-overline)',
   textTransform: 'uppercase',
-  color: 'var(--accent-strong)',
+  color: 'var(--accent-text)',
 };
 
 export function TeamGrid({ membros }: { membros: readonly TeamMember[] }) {
