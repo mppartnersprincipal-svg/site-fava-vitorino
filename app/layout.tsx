@@ -4,6 +4,7 @@ import { SITE } from '@/content/data/site';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat';
+import { RevealObserver } from '@/components/sections/RevealObserver';
 import { Analytics } from '@/components/analytics/Analytics';
 import { JsonLd } from '@/components/analytics/JsonLd';
 import { legalServiceSchema } from '@/lib/schema';
@@ -43,6 +44,7 @@ export default function RootLayout({
         <main id="conteudo">{children}</main>
         <SiteFooter />
         <WhatsAppFloat />
+        <RevealObserver />
         <Analytics />
         <JsonLd data={legalServiceSchema()} />
       </body>

@@ -250,6 +250,53 @@ ol[role='list'] {
 }
 
 /* ==========================================================================
+   Botões-link (CTA) — hover via CSS para manter server components
+   ========================================================================== */
+
+.btn {
+  font-family: var(--font-title);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-sm { padding: 8px 16px; font-size: 12px; }
+.btn-md { padding: 12px 24px; font-size: 13px; }
+.btn-lg { padding: 16px 32px; font-size: 14px; }
+
+.btn-primary { background: var(--verde-900); color: var(--areia-100); border: 1px solid transparent; }
+.btn-primary:hover { background: var(--verde-800); }
+
+.btn-gold { background: var(--accent); color: var(--verde-900); border: 1px solid transparent; }
+.btn-gold:hover { background: var(--accent-strong); }
+
+.btn-outline { background: transparent; color: var(--verde-900); border: 1px solid var(--verde-900); }
+.btn-outline:hover { background: rgba(8, 50, 36, 0.06); }
+
+.btn-outline-on-dark { background: transparent; color: var(--areia-100); border: 1px solid var(--border-on-dark); }
+.btn-outline-on-dark:hover { background: rgba(239, 235, 229, 0.12); }
+
+.btn-ghost { background: transparent; color: var(--verde-900); border: 1px solid transparent; }
+.btn-ghost:hover { background: rgba(8, 50, 36, 0.06); }
+
+/* Card interativo — sombra no hover via CSS */
+.card-hover {
+  cursor: pointer;
+}
+
+.card-hover:hover {
+  box-shadow: var(--shadow-card) !important;
+}
+
+/* ==========================================================================
    Scroll reveal — animação contida (regra da marca: sem bounce/parallax)
    ========================================================================== */
 

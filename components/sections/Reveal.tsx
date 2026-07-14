@@ -1,25 +1,4 @@
-'use client';
-
-import { useEffect, useRef, type CSSProperties, type ReactNode } from 'react';
-
-let observer: IntersectionObserver | null = null;
-
-function getObserver(): IntersectionObserver {
-  if (!observer) {
-    observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer?.unobserve(entry.target);
-          }
-        }
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -5% 0px' },
-    );
-  }
-  return observer;
-}
+import type { CSSProperties, ReactNode } from 'react';
 
 export interface RevealProps {
   children: ReactNode;
@@ -29,19 +8,13 @@ export interface RevealProps {
   className?: string;
 }
 
-/** Fade-in contido ao entrar no viewport. Observer único compartilhado; sem JS o conteúdo fica visível (noscript no layout). */
+/**
+ * Marca o bloco para fade-in ao entrar no viewport. Server component puro —
+ * a observação acontece no RevealObserver único montado no layout.
+ */
 export function Reveal({ children, delay, style, className }: RevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = getObserver();
-    obs.observe(el);
-    return () => obs.unobserve(el);
-  }, []);
   return (
     <div
-      ref={ref}
       className={className ? `reveal ${className}` : 'reveal'}
       style={{ transitionDelay: delay ? `${delay}ms` : undefined, ...style }}
     >
