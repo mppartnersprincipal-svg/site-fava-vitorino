@@ -1,0 +1,38 @@
+<!-- @dsCard group="Components" viewport="700x460" name="Display" subtitle="Card, Badge, Tag, Tabs, SectionHeading" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<style>body{margin:0;font-family:var(--font-body);background:var(--surface-page);padding:20px}</style>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<script src="../../ds-loader.js"></script>
+</head><body><div id="root"></div>
+<script type="text/babel">
+loadDS('../../').then((DS)=>{
+const {Card,Badge,Tag,Tabs,SectionHeading}=DS;
+function Demo(){
+  const [tab,setTab]=React.useState('Pessoa física');
+  return <div style={{display:'flex',flexDirection:'column',gap:20}}>
+    <SectionHeading overline="Áreas de atuação" title="Estratégia patrimonial" lead="Atuação consultiva e contenciosa."/>
+    <Tabs tabs={['Pessoa física','Pessoa jurídica']} value={tab} onChange={setTab}/>
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
+      <Card interactive>
+        <div style={{font:'var(--text-h3)',letterSpacing:'var(--tracking-title)',textTransform:'uppercase',color:'var(--text-title)',marginBottom:8}}>Direito Imobiliário</div>
+        <p style={{margin:0,font:'var(--text-body-sm)',color:'var(--text-muted)'}}>Da compra à regularização, com segurança jurídica.</p>
+      </Card>
+      <Card tone="dark">
+        <div style={{font:'var(--text-h3)',letterSpacing:'var(--tracking-title)',textTransform:'uppercase',marginBottom:8}}>Tom escuro</div>
+        <p style={{margin:0,font:'var(--text-body-sm)',color:'var(--text-on-dark-muted)'}}>Para uso dentro de seções verdes.</p>
+      </Card>
+    </div>
+    <div style={{display:'flex',gap:10,alignItems:'center',flexWrap:'wrap'}}>
+      <Badge tone="gold">Revisional bancária</Badge>
+      <Badge tone="green">Novo</Badge>
+      <Badge tone="sand">Consultivo</Badge>
+      <Tag>Imobiliário</Tag>
+      <Tag onRemove={()=>{}}>Sucessões</Tag>
+    </div>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+});
+</script></body></html>

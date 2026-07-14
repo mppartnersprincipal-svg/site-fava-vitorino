@@ -1,0 +1,33 @@
+:root {
+  /* Base palette — Manual da Marca */
+  --verde-900: #083224;   /* verde escuro institucional */
+  --verde-800: #0c4231;
+  --verde-700: #12513d;
+  --verde-100: #dfe8e2;
+  --dourado-500: #e5b775; /* dourado */
+  --dourado-600: #d4a25c;
+  --dourado-300: #efd3a8;
+  --areia-100: #efebe5;   /* off-white / areia */
+  --areia-50: #f7f4ef;
+  --branco: #ffffff;
+
+  /* Semantic */
+  --surface-page: var(--areia-100);
+  --surface-card: var(--branco);
+  --surface-dark: var(--verde-900);
+  --surface-dark-raised: var(--verde-800);
+  --text-title: var(--verde-900);
+  --text-body: #2f3d36;
+  --text-muted: #6b7a71;
+  --text-on-dark: var(--areia-100);
+  --text-on-dark-muted: #b9c6be;
+  --accent: var(--dourado-500);
+  --accent-strong: var(--dourado-600);
+  --accent-soft: var(--dourado-300);
+  --border-subtle: #ddd6cb;
+  --border-on-dark: rgba(239, 235, 229, 0.18);
+  --focus-ring: rgba(229, 183, 117, 0.45);
+  --feedback-success: var(--verde-700);
+  --feedback-error: #8a3b2e;
+  --feedback-info: var(--dourado-600);
+}

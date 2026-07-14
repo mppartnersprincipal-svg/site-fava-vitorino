@@ -1,0 +1,40 @@
+<!-- @dsCard group="Components" viewport="700x430" name="Forms" subtitle="Button, Input, Select, Checkbox, Radio" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<style>body{margin:0;font-family:var(--font-body);background:var(--surface-page);padding:20px}</style>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<script src="../../ds-loader.js"></script>
+</head><body><div id="root"></div>
+<script type="text/babel">
+loadDS('../../').then((DS)=>{
+const {Button,Input,Textarea,Select,Checkbox,Radio}=DS;
+function Demo(){
+  const [ok,setOk]=React.useState(true);
+  const [tipo,setTipo]=React.useState('pf');
+  return <div style={{display:'flex',flexDirection:'column',gap:20}}>
+    <div style={{display:'flex',gap:12,alignItems:'center',flexWrap:'wrap'}}>
+      <Button variant="gold">Fale com o escritório</Button>
+      <Button variant="primary">Agendar conversa</Button>
+      <Button variant="outline">Ver áreas</Button>
+      <Button variant="ghost" size="sm">Saiba mais</Button>
+      <Button variant="primary" disabled>Enviando…</Button>
+    </div>
+    <div style={{background:'var(--verde-900)',padding:'12px 16px',borderRadius:4,display:'inline-flex',gap:12}}>
+      <Button variant="outline-on-dark">Sobre verde</Button>
+      <Button variant="gold" size="sm">CTA</Button>
+    </div>
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
+      <Input label="Nome" placeholder="Seu nome completo"/>
+      <Select label="Área de interesse" options={['Direito de Família e Sucessões','Direito Imobiliário','Revisional Bancária']}/>
+    </div>
+    <div style={{display:'flex',gap:24,alignItems:'center',flexWrap:'wrap'}}>
+      <Checkbox checked={ok} onChange={setOk} label="Li e concordo com a política de privacidade"/>
+      <Radio name="t" value="pf" checked={tipo==='pf'} onChange={setTipo} label="Pessoa física"/>
+      <Radio name="t" value="pj" checked={tipo==='pj'} onChange={setTipo} label="Pessoa jurídica"/>
+    </div>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+});
+</script></body></html>
