@@ -1,22 +1,53 @@
 import type { Metadata } from 'next';
-import { SectionHeading } from '@/components/ds';
+import { ButtonLink } from '@/components/ds/forms/ButtonLink';
+import { RevisionalTemplate } from '@/components/sections/RevisionalTemplate';
+import { WhatsAppCta } from '@/components/sections/WhatsAppCta';
+import { REVISIONAL_PF } from '@/content/data/revisional-pf';
+
+const DESCRIPTION =
+  'Análise técnica de contratos bancários para verificar juros, tarifas e encargos abusivos. Atendimento humanizado e relatório em Visual Law. Fale conosco.';
 
 export const metadata: Metadata = {
   title: 'Revisional Bancária para Pessoa Física — Fava e Vitorino Advocacia',
-  description:
-    'Análise técnica de contratos bancários para verificar juros, tarifas e encargos abusivos. Atendimento humanizado e relatório em Visual Law. Fale conosco.',
+  description: DESCRIPTION,
 };
 
-// Stub da Fase 3 — conteúdo completo na Fase 6.
 export default function RevisionalPfPage() {
   return (
-    <div className="container" style={{ paddingBlock: 'var(--space-9)' }}>
-      <SectionHeading
-        as="h1"
-        overline="Revisional bancária — Pessoa física"
-        title="Você sabe exatamente o que o banco está cobrando no seu contrato?"
-        lead="Página em construção — Fase 6."
-      />
-    </div>
+    <RevisionalTemplate
+      data={REVISIONAL_PF}
+      path="/revisional-bancaria-pf"
+      description={DESCRIPTION}
+      heroActions={
+        <>
+          <WhatsAppCta
+            message={REVISIONAL_PF.meta.whatsappMessage}
+            location="hero_revisional_pf"
+            variant="gold"
+            size="lg"
+          >
+            {REVISIONAL_PF.hero.ctaPrimario}
+          </WhatsAppCta>
+          <ButtonLink href="#como-funciona" variant="outline-on-dark" size="lg">
+            {REVISIONAL_PF.hero.ctaSecundario}
+          </ButtonLink>
+        </>
+      }
+      ctaActions={
+        <>
+          <WhatsAppCta
+            message={REVISIONAL_PF.meta.whatsappMessage}
+            location="cta_final_revisional_pf"
+            variant="gold"
+            size="lg"
+          >
+            {REVISIONAL_PF.ctaFinal.botaoPrimario}
+          </WhatsAppCta>
+          <ButtonLink href="/contato" variant="outline-on-dark" size="lg">
+            {REVISIONAL_PF.ctaFinal.botaoSecundario}
+          </ButtonLink>
+        </>
+      }
+    />
   );
 }

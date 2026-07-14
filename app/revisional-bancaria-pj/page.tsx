@@ -1,22 +1,63 @@
 import type { Metadata } from 'next';
-import { SectionHeading } from '@/components/ds';
+import { RevisionalTemplate } from '@/components/sections/RevisionalTemplate';
+import { WhatsAppCta } from '@/components/sections/WhatsAppCta';
+import { REVISIONAL_PJ } from '@/content/data/revisional-pj';
+import { WHATSAPP_DEFAULT_MESSAGE } from '@/lib/whatsapp';
+
+const DESCRIPTION =
+  'Diagnóstico de operações de crédito empresarial. Análise de capital de giro, conta garantida, leasing e mais. Relatório em Visual Law para a diretoria decidir.';
 
 export const metadata: Metadata = {
   title: 'Revisional Bancária para Empresas — Fava e Vitorino Advocacia',
-  description:
-    'Diagnóstico de operações de crédito empresarial. Análise de capital de giro, conta garantida, leasing e mais. Relatório em Visual Law para a diretoria decidir.',
+  description: DESCRIPTION,
 };
 
-// Stub da Fase 3 — conteúdo completo na Fase 6.
 export default function RevisionalPjPage() {
   return (
-    <div className="container" style={{ paddingBlock: 'var(--space-9)' }}>
-      <SectionHeading
-        as="h1"
-        overline="Revisional bancária — Empresas"
-        title="Sua empresa pode estar pagando mais do que deve ao banco."
-        lead="Página em construção — Fase 6."
-      />
-    </div>
+    <RevisionalTemplate
+      data={REVISIONAL_PJ}
+      path="/revisional-bancaria-pj"
+      description={DESCRIPTION}
+      heroActions={
+        <>
+          <WhatsAppCta
+            message={REVISIONAL_PJ.meta.whatsappMessage}
+            location="hero_revisional_pj"
+            variant="gold"
+            size="lg"
+          >
+            {REVISIONAL_PJ.hero.ctaPrimario}
+          </WhatsAppCta>
+          <WhatsAppCta
+            message={WHATSAPP_DEFAULT_MESSAGE}
+            location="hero_revisional_pj_secundario"
+            variant="outline-on-dark"
+            size="lg"
+          >
+            {REVISIONAL_PJ.hero.ctaSecundario}
+          </WhatsAppCta>
+        </>
+      }
+      ctaActions={
+        <>
+          <WhatsAppCta
+            message={REVISIONAL_PJ.meta.whatsappMessage}
+            location="cta_final_revisional_pj"
+            variant="gold"
+            size="lg"
+          >
+            {REVISIONAL_PJ.ctaFinal.botaoPrimario}
+          </WhatsAppCta>
+          <WhatsAppCta
+            message={WHATSAPP_DEFAULT_MESSAGE}
+            location="cta_final_revisional_pj_secundario"
+            variant="outline-on-dark"
+            size="lg"
+          >
+            {REVISIONAL_PJ.ctaFinal.botaoSecundario}
+          </WhatsAppCta>
+        </>
+      }
+    />
   );
 }
