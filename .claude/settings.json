@@ -5,7 +5,8 @@
       "Bash(cp \"Fotos/Design system completo/assets/logo-horizontal.png\" \"Fotos/Design system completo/assets/logo-horizontal-transparente.png\" \"Fotos/Design system completo/assets/logo-simbolo.png\" \"Fotos/Design system completo/assets/logo-simbolo-transparente.png\" public/images/logos/)",
       "Bash(cp \"Fotos/Nathalia/nathalia-fava.webp\" public/images/equipe/)",
       "Bash(cp \"Fotos/Jéssica/jessica-vitorino.webp\" public/images/equipe/)",
-      "Bash(cp \"Fotos/Fotos das duas advogadas/Cópia-de-IMG_3902.webp\" public/images/equipe/dupla-1.webp)"
+      "Bash(cp \"Fotos/Fotos das duas advogadas/Cópia-de-IMG_3902.webp\" public/images/equipe/dupla-1.webp)",
+      "Bash(npm start *)"
     ]
   }
 }
