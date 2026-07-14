@@ -1,5 +1,14 @@
 import type { Metadata } from 'next';
-import { SectionHeading } from '@/components/ds';
+import { Card, SectionHeading } from '@/components/ds';
+import { ButtonLink } from '@/components/ds/forms/ButtonLink';
+import { Hero } from '@/components/sections/Hero';
+import { Section } from '@/components/sections/Section';
+import { Reveal } from '@/components/sections/Reveal';
+import { TeamGrid } from '@/components/sections/TeamGrid';
+import { CtaSection } from '@/components/sections/CtaSection';
+import { WhatsAppCta } from '@/components/sections/WhatsAppCta';
+import { SOBRE } from '@/content/data/sobre';
+import { SITE } from '@/content/data/site';
 
 export const metadata: Metadata = {
   title: 'Sobre o Fava e Vitorino Advocacia — Quem somos e como atuamos',
@@ -7,16 +16,99 @@ export const metadata: Metadata = {
     'Conheça a história, a equipe e os valores do Fava e Vitorino Advocacia. Escritório fundado por Nathalia Fava e Jessica Vitorino com foco em advocacia estratégica e humanizada.',
 };
 
-// Stub da Fase 3 — conteúdo completo na Fase 5.
 export default function SobrePage() {
   return (
-    <div className="container" style={{ paddingBlock: 'var(--space-9)' }}>
-      <SectionHeading
-        as="h1"
+    <>
+      <Hero
         overline="Quem somos"
-        title="Advocacia estratégica, humana e tecnológica."
-        lead="Página em construção — Fase 5."
+        title={SOBRE.hero.titulo}
+        lead={SOBRE.hero.paragrafos[0]}
       />
-    </div>
+
+      <Section tone="areia">
+        <div className="split" style={{ alignItems: 'start' }}>
+          <Reveal>
+            <SectionHeading
+              overline="Nossa história"
+              title="Um escritório moderno, estratégico e próximo"
+            />
+          </Reveal>
+          <Reveal delay={100}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
+              {SOBRE.hero.paragrafos.slice(1).map((p) => (
+                <p key={p.slice(0, 24)} style={{ margin: 0, font: 'var(--text-body-lg)', color: 'var(--text-body)' }}>
+                  {p}
+                </p>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+
+      <Section tone="verde">
+        <Reveal>
+          <SectionHeading overline="Fundamentos" title="Missão, visão e valores" onDark />
+        </Reveal>
+        <div className="grid-3" style={{ marginTop: 'var(--space-7)', alignItems: 'stretch' }}>
+          <Reveal>
+            <Card tone="dark" style={{ height: '100%', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+              <h3 style={{ margin: 0, font: 'var(--text-h3)', letterSpacing: 'var(--tracking-title)', textTransform: 'uppercase', color: 'var(--accent)' }}>
+                Missão
+              </h3>
+              <p style={{ margin: 0, font: 'var(--text-body-md)', color: 'var(--text-on-dark-muted)' }}>{SOBRE.mvv.missao}</p>
+            </Card>
+          </Reveal>
+          <Reveal delay={100}>
+            <Card tone="dark" style={{ height: '100%', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+              <h3 style={{ margin: 0, font: 'var(--text-h3)', letterSpacing: 'var(--tracking-title)', textTransform: 'uppercase', color: 'var(--accent)' }}>
+                Visão
+              </h3>
+              <p style={{ margin: 0, font: 'var(--text-body-md)', color: 'var(--text-on-dark-muted)' }}>{SOBRE.mvv.visao}</p>
+            </Card>
+          </Reveal>
+          <Reveal delay={200}>
+            <Card tone="dark" style={{ height: '100%', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+              <h3 style={{ margin: 0, font: 'var(--text-h3)', letterSpacing: 'var(--tracking-title)', textTransform: 'uppercase', color: 'var(--accent)' }}>
+                Valores
+              </h3>
+              <ul style={{ margin: 0, paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 6 }}>
+                {SOBRE.mvv.valores.map((v) => (
+                  <li key={v} style={{ font: 'var(--text-body-sm)', color: 'var(--text-on-dark-muted)' }}>
+                    {v}
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </Reveal>
+        </div>
+      </Section>
+
+      <Section tone="areia">
+        <Reveal>
+          <SectionHeading
+            overline="Equipe"
+            title="As advogadas"
+            lead="Sócias-fundadoras que unem técnica jurídica, tecnologia e atendimento próximo."
+          />
+        </Reveal>
+        <TeamGrid membros={SOBRE.equipe} />
+        <div style={{ marginTop: 'var(--space-9)' }}>
+          <CtaSection
+            titulo={SOBRE.cta.titulo}
+            texto={SOBRE.cta.texto}
+            actions={
+              <>
+                <WhatsAppCta message={SOBRE.cta.whatsappMessage} location="cta_sobre" variant="gold" size="lg">
+                  Falar no WhatsApp
+                </WhatsAppCta>
+                <ButtonLink href={`mailto:${SITE.emails[0]}`} variant="outline-on-dark" size="lg">
+                  Enviar e-mail
+                </ButtonLink>
+              </>
+            }
+          />
+        </div>
+      </Section>
+    </>
   );
 }
