@@ -6,7 +6,8 @@
       "Bash(cp \"Fotos/Nathalia/nathalia-fava.webp\" public/images/equipe/)",
       "Bash(cp \"Fotos/Jéssica/jessica-vitorino.webp\" public/images/equipe/)",
       "Bash(cp \"Fotos/Fotos das duas advogadas/Cópia-de-IMG_3902.webp\" public/images/equipe/dupla-1.webp)",
-      "Bash(npm start *)"
+      "Bash(npm start *)",
+      "PowerShell($conns = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue; if \\($conns\\) { $conns | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -Confirm:$false; Write-Output \"killed PID $_\" } } else { Write-Output \"port 3000 free\" })"
     ]
   }
 }

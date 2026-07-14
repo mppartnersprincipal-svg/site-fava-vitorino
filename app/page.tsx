@@ -3,9 +3,9 @@ import { SITE } from '@/content/data/site';
 // Página provisória da Fase 1 — substituída pela Home completa na Fase 4.
 export default function Home() {
   return (
-    <main
+    <div
       style={{
-        minHeight: '100vh',
+        minHeight: '70vh',
         display: 'grid',
         placeItems: 'center',
         padding: 'var(--space-8)',
@@ -38,6 +38,6 @@ export default function Home() {
           {SITE.tagline}
         </p>
       </div>
-    </main>
+    </div>
   );
 }

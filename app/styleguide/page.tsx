@@ -28,7 +28,7 @@ export default function Styleguide() {
   const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
-    <main className="container" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)', paddingBlock: 'var(--space-8)' }}>
+    <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)', paddingBlock: 'var(--space-8)' }}>
       <SectionHeading
         as="h1"
         overline="Design system"
@@ -125,6 +125,6 @@ export default function Styleguide() {
           Recebemos sua mensagem e retornaremos em até 24 horas úteis.
         </Dialog>
       </Specimen>
-    </main>
+    </div>
   );
 }

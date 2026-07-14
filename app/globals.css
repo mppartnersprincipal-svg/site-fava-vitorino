@@ -181,6 +181,75 @@ ol[role='list'] {
 }
 
 /* ==========================================================================
+   Layout responsivo (mobile-first) — grids e navegação
+   ========================================================================== */
+
+.grid-2,
+.grid-3 {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Duas colunas assimétricas (texto + mídia) que empilham no mobile */
+.split {
+  display: grid;
+  gap: var(--space-7);
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Navegação do header: desktop mostra links, mobile mostra hambúrguer */
+.site-nav-desktop {
+  display: none;
+}
+
+.site-menu-toggle {
+  display: inline-flex;
+}
+
+@media (min-width: 1000px) {
+  .site-nav-desktop {
+    display: flex;
+  }
+
+  .site-menu-toggle {
+    display: none;
+  }
+}
+
+.footer-grid {
+  display: grid;
+  gap: var(--space-7);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 800px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+}
+
+/* ==========================================================================
    Scroll reveal — animação contida (regra da marca: sem bounce/parallax)
    ========================================================================== */
 
