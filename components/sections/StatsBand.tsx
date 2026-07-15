@@ -1,4 +1,5 @@
 import { Reveal } from './Reveal';
+import { StatValue } from './StatValue';
 
 export interface Stat {
   valor: string;
@@ -20,7 +21,7 @@ export function StatsBand({ stats }: { stats: readonly Stat[] }) {
                 color: 'var(--accent)',
               }}
             >
-              {s.valor}
+              <StatValue valor={s.valor} />
             </span>
             <span aria-hidden="true" style={{ width: 32, height: 2, background: 'var(--accent)', opacity: 0.6 }} />
             <span style={{ font: 'var(--text-body-md)', color: 'var(--text-on-dark-muted)', maxWidth: 300 }}>
