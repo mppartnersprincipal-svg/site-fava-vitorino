@@ -7,7 +7,7 @@ import { Section } from '@/components/sections/Section';
 import { AreaGrid } from '@/components/sections/AreaGrid';
 import { FeatureList } from '@/components/sections/FeatureList';
 import { StatsBand } from '@/components/sections/StatsBand';
-import { TestimonialSlots } from '@/components/sections/TestimonialSlots';
+import { GoogleReviews } from '@/components/sections/GoogleReviews';
 import { FaqSection } from '@/components/sections/FaqSection';
 import { CtaSection } from '@/components/sections/CtaSection';
 import { Reveal } from '@/components/sections/Reveal';
@@ -15,7 +15,6 @@ import { WhatsAppCta } from '@/components/sections/WhatsAppCta';
 import { faqPageSchema } from '@/lib/schema';
 import { HOME } from '@/content/data/home';
 import { AREAS } from '@/content/data/areas';
-import { SITE } from '@/content/data/site';
 import { isPending } from '@/content/data/pending';
 
 export default function Home() {
@@ -109,8 +108,8 @@ export default function Home() {
       </Section>
 
       <Section tone="areia">
-        <TestimonialSlots titulo={HOME.depoimentos.titulo} itens={HOME.depoimentos.itens} />
-        <div style={{ marginTop: HOME.depoimentos.itens.length ? 'var(--space-9)' : 0 }}>
+        <GoogleReviews titulo={HOME.depoimentos.titulo} />
+        <div style={{ marginTop: 'var(--space-9)' }}>
           <FaqSection titulo={HOME.faq.titulo} itens={HOME.faq.itens} />
         </div>
         <div style={{ marginTop: 'var(--space-9)' }}>
@@ -118,14 +117,9 @@ export default function Home() {
             titulo={HOME.ctaFinal.titulo}
             texto={HOME.ctaFinal.texto}
             actions={
-              <>
-                <WhatsAppCta message={HOME.hero.whatsappMessage} location="cta_final_home" variant="gold" size="lg">
-                  {HOME.ctaFinal.botaoPrimario}
-                </WhatsAppCta>
-                <ButtonLink href={`mailto:${SITE.emails[0]}`} variant="outline-on-dark" size="lg" target="_self" rel="">
-                  {HOME.ctaFinal.botaoSecundario}
-                </ButtonLink>
-              </>
+              <WhatsAppCta message={HOME.hero.whatsappMessage} location="cta_final_home" variant="gold" size="lg">
+                {HOME.ctaFinal.botaoPrimario}
+              </WhatsAppCta>
             }
           />
         </div>

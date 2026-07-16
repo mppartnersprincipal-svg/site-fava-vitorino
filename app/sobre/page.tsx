@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Card, SectionHeading } from '@/components/ds';
-import { ButtonLink } from '@/components/ds/forms/ButtonLink';
 import { Hero } from '@/components/sections/Hero';
 import { Section } from '@/components/sections/Section';
 import { Reveal } from '@/components/sections/Reveal';
@@ -8,7 +7,6 @@ import { TeamGrid } from '@/components/sections/TeamGrid';
 import { CtaSection } from '@/components/sections/CtaSection';
 import { WhatsAppCta } from '@/components/sections/WhatsAppCta';
 import { SOBRE } from '@/content/data/sobre';
-import { SITE } from '@/content/data/site';
 
 export const metadata: Metadata = {
   title: 'Sobre o Fava e Vitorino Advocacia — Quem somos e como atuamos',
@@ -97,14 +95,9 @@ export default function SobrePage() {
             titulo={SOBRE.cta.titulo}
             texto={SOBRE.cta.texto}
             actions={
-              <>
-                <WhatsAppCta message={SOBRE.cta.whatsappMessage} location="cta_sobre" variant="gold" size="lg">
-                  Falar no WhatsApp
-                </WhatsAppCta>
-                <ButtonLink href={`mailto:${SITE.emails[0]}`} variant="outline-on-dark" size="lg">
-                  Enviar e-mail
-                </ButtonLink>
-              </>
+              <WhatsAppCta message={SOBRE.cta.whatsappMessage} location="cta_sobre" variant="gold" size="lg">
+                Falar no WhatsApp
+              </WhatsAppCta>
             }
           />
         </div>

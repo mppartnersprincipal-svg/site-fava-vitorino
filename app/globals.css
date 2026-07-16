@@ -377,6 +377,78 @@ ol[role='list'] {
 }
 
 /* ==========================================================================
+   Avaliações do Google — marquee automático (CSS puro, sem JS)
+   Duas cópias da lista rolam -50%; hover/foco pausa; reduced-motion vira
+   scroll manual. Regra da marca respeitada: movimento linear, sem bounce.
+   ========================================================================== */
+
+.greviews-viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.greviews-track {
+  display: flex;
+  width: max-content;
+  animation: greviews-scroll 90s linear infinite;
+}
+
+.greviews-viewport:hover .greviews-track,
+.greviews-viewport:focus-within .greviews-track {
+  animation-play-state: paused;
+}
+
+.greviews-row {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-5);
+  padding: 0 var(--space-5) 0 0;
+  margin: 0;
+  list-style: none;
+}
+
+.greviews-row > li {
+  display: flex;
+  width: min(340px, 78vw);
+  flex-shrink: 0;
+}
+
+.greviews-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@keyframes greviews-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .greviews-track {
+    animation: none;
+  }
+
+  .greviews-viewport {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  /* Sem animação a cópia duplicada é redundante */
+  .greviews-row[aria-hidden='true'] {
+    display: none;
+  }
+}
+
+/* ==========================================================================
    Scroll reveal — animação contida (regra da marca: sem bounce/parallax)
    ========================================================================== */
 
