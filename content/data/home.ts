@@ -99,7 +99,8 @@ export const HOME = {
       },
       {
         question: 'Quanto custa o atendimento inicial?',
-        answer: PENDING.custoAtendimento,
+        answer:
+          'O atendimento inicial não tem custo. É uma conversa sem compromisso para entendermos a sua situação e indicarmos os caminhos possíveis. Ele é diferente da consultoria jurídica, que é um serviço pago — e, nesse caso, você recebe antes uma proposta clara, com escopo e valores definidos.',
       },
     ] satisfies FaqItem[],
   },
@@ -109,6 +110,5 @@ export const HOME = {
     texto:
       'Fale com o Fava e Vitorino e receba uma orientação clara, sem compromisso, sobre o melhor caminho para o seu caso.',
     botaoPrimario: 'Falar no WhatsApp',
-    botaoSecundario: 'Enviar e-mail',
   },
 } as const;

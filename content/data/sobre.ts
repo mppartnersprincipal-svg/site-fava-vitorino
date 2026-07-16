@@ -1,4 +1,3 @@
-import { PENDING } from './pending';
 
 /** Copy canônica da página Sobre (PRD 1.2). */
 export const SOBRE = {
@@ -47,7 +46,7 @@ export const SOBRE = {
     {
       nome: 'Jessica Vitorino Martins',
       cargo: 'Sócia-fundadora',
-      oab: PENDING.oabJessica,
+      oab: 'OAB/PR nº 55.559',
       foto: '/images/equipe/jessica-vitorino.webp',
       fotoAlt: 'Jessica Vitorino Martins, sócia-fundadora do Fava e Vitorino Advocacia',
       bio: [

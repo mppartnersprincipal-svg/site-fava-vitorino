@@ -62,7 +62,7 @@ export const REVISIONAL_PF = {
   passos: {
     titulo: 'Como funciona o processo',
     itens: [
-      { titulo: 'Atendimento inicial', desc: 'Você entra em contato e nos conta sua situação, sem compromisso.' },
+      { titulo: 'Atendimento inicial', desc: 'Você entra em contato e nos conta sua situação, sem custo e sem compromisso.' },
       { titulo: 'Envio dos documentos e análise técnica', desc: 'Você nos envia o contrato e os comprovantes, e fazemos a análise detalhada de juros, tarifas, encargos e composição da dívida.' },
       { titulo: 'Reunião + relatório em Visual Law', desc: 'Constatada a existência de cobranças abusivas, agendamos uma reunião e apresentamos um relatório claro e visual, mostrando o que foi identificado e os caminhos possíveis.' },
       { titulo: 'Definição da estratégia', desc: 'Juntos, decidimos a melhor via para o seu caso (administrativa ou judicial).' },

@@ -52,7 +52,7 @@ export function SiteFooter() {
           ))}
           <span style={textStyle}>{SITE.horario}</span>
           <span style={textStyle}>Atendimento presencial: {SITE.atendimentoPresencial.toLowerCase()}</span>
-          <span style={textStyle}>{PENDING.endereco}</span>
+          <span style={textStyle}>{SITE.endereco.completo}</span>
         </div>
 
         <div style={colStyle}>

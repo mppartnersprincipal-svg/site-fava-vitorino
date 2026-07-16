@@ -65,7 +65,7 @@ export const REVISIONAL_PJ = {
   passos: {
     titulo: 'Como funciona o processo para empresas',
     itens: [
-      { titulo: 'Atendimento inicial', desc: 'Conversamos com a empresa para entender o cenário financeiro e as linhas de crédito envolvidas.' },
+      { titulo: 'Atendimento inicial', desc: 'Conversamos com a empresa para entender o cenário financeiro e as linhas de crédito envolvidas, sem custo e sem compromisso.' },
       { titulo: 'Diagnóstico e envio dos contratos', desc: 'A empresa nos envia os contratos, extratos e demonstrativos, e fazemos um diagnóstico das operações de crédito.' },
       { titulo: 'Análise técnica dos contratos', desc: 'Verificamos juros, encargos, tarifas e cláusulas de cada operação, identificando possíveis irregularidades.' },
       { titulo: 'Reunião + relatório em Visual Law', desc: 'Constatada a existência de cobranças abusivas, agendamos uma reunião e apresentamos um relatório claro e visual, com o que foi identificado e os caminhos possíveis.' },

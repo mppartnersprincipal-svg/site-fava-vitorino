@@ -11,18 +11,8 @@ export function isPending(text: string): boolean {
 }
 
 export const PENDING = {
-  /** Endereço completo em texto (rua, número, cidade, UF, CEP). Fica FORA do JSON-LD até existir. */
-  endereco: '[PENDENTE: endereço completo do escritório]',
-
-  /** Link funcional do Google Maps (o briefing trouxe só um share.google inacessível). */
-  googleMapsUrl: null as string | null,
-
-  /** Número da OAB de Jessica Vitorino Martins (em branco no briefing). */
-  oabJessica: '[PENDENTE: OAB de Jessica Vitorino]',
-
-  /** Resposta da FAQ 5 da Home: o atendimento inicial é gratuito ou pago? */
-  custoAtendimento:
-    '[PENDENTE: definir com o escritório se o atendimento inicial é gratuito ou tem custo]',
+  /** Link funcional do Google Maps (CID da ficha extraído do Maps em 16/07/2026). */
+  googleMapsUrl: 'https://maps.google.com/?cid=15812551867850209934' as string | null,
 
   /** Depoimentos reais autorizados (3–4 slots). Enquanto não existirem, a seção não renderiza. */
   depoimentos: [] as Array<{

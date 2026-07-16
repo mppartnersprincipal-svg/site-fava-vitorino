@@ -2,8 +2,7 @@ import { SITE } from '@/content/data/site';
 import { PENDING } from '@/content/data/pending';
 
 /**
- * Builders de JSON-LD (schema.org). O endereço fica fora do LegalService
- * até existir em texto (não emitir dado falso para buscadores).
+ * Builders de JSON-LD (schema.org).
  */
 
 export function legalServiceSchema() {
@@ -23,6 +22,10 @@ export function legalServiceSchema() {
     email: SITE.emails[0],
     address: {
       '@type': 'PostalAddress',
+      streetAddress: SITE.endereco.logradouro,
+      addressLocality: SITE.endereco.cidade,
+      addressRegion: SITE.endereco.uf,
+      postalCode: SITE.endereco.cep,
       addressCountry: 'BR',
     },
     openingHours: 'Mo-Fr 09:00-18:00',

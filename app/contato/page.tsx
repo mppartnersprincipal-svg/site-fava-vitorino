@@ -76,7 +76,7 @@ export default function ContatoPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
               <span style={channelLabel}>Atendimento presencial</span>
               <span style={channelValue}>{SITE.atendimentoPresencial}</span>
-              <span style={channelValue}>{PENDING.endereco}</span>
+              <span style={channelValue}>{SITE.endereco.completo}</span>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
