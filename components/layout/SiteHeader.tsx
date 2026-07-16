@@ -8,6 +8,7 @@ import { MobileMenu } from './MobileMenu';
 import { NAV_LINKS } from './nav-links';
 import { useScrolled } from './useScrolled';
 import { whatsappUrl, WHATSAPP_DEFAULT_MESSAGE } from '@/lib/whatsapp';
+import { WhatsAppIcon } from '@/components/ds/display/WhatsAppIcon';
 import { trackLead } from '@/lib/analytics';
 
 export function SiteHeader() {
@@ -76,8 +77,10 @@ export function SiteHeader() {
               padding: '10px 20px', borderRadius: 'var(--radius-pill)',
               transition: 'background var(--transition-fast)',
               whiteSpace: 'nowrap',
+              display: 'inline-flex', alignItems: 'center', gap: 8,
             }}
           >
+            <WhatsAppIcon size={16} />
             Fale com o escritório
           </a>
         </nav>

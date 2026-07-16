@@ -1,6 +1,7 @@
 'use client';
 
 import { ButtonLink, type ButtonLinkProps } from '@/components/ds/forms/ButtonLink';
+import { WhatsAppIcon } from '@/components/ds/display/WhatsAppIcon';
 import { whatsappUrl } from '@/lib/whatsapp';
 import { trackLead } from '@/lib/analytics';
 
@@ -18,6 +19,7 @@ export function WhatsAppCta({ message, location, children, ...rest }: WhatsAppCt
       onClick={() => trackLead('whatsapp_click', { location })}
       {...rest}
     >
+      <WhatsAppIcon />
       {children}
     </ButtonLink>
   );

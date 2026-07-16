@@ -6,6 +6,7 @@ export { Switch, type SwitchProps } from './forms/Switch';
 export { Card, type CardProps, type CardTone } from './display/Card';
 export { Badge, Tag, type BadgeProps, type BadgeTone, type TagProps } from './display/Badge';
 export { SectionHeading, type SectionHeadingProps } from './display/SectionHeading';
+export { WhatsAppIcon, type WhatsAppIconProps } from './display/WhatsAppIcon';
 export { Tabs, type TabsProps, type TabItem } from './display/Tabs';
 export { Accordion, type AccordionProps, type AccordionItem } from './display/Accordion';
 export { Toast, type ToastProps, type ToastTone } from './feedback/Toast';

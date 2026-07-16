@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 import { NAV_LINKS } from './nav-links';
 import { whatsappUrl, WHATSAPP_DEFAULT_MESSAGE } from '@/lib/whatsapp';
+import { WhatsAppIcon } from '@/components/ds/display/WhatsAppIcon';
 import { trackLead } from '@/lib/analytics';
 
 export interface MobileMenuProps {
@@ -114,8 +115,10 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           background: 'var(--accent)', color: 'var(--verde-900)',
           padding: '16px 32px', borderRadius: 'var(--radius-pill)',
           marginBottom: 'var(--space-5)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
         }}
       >
+        <WhatsAppIcon size={18} />
         Fale com o escritório
       </a>
     </div>
