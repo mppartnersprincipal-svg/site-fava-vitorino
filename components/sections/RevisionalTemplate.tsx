@@ -18,7 +18,7 @@ import { SITE } from '@/content/data/site';
 
 export interface RevisionalData {
   meta: { serviceName: string; whatsappMessage: string };
-  hero: { overline: string; headline: string; sub: string };
+  hero: { overline?: string; headline: string; sub: string };
   dores: { titulo: string; intro: string; itens: readonly PainPoint[] };
   servico: { titulo: string; intro: string; beneficios: readonly Benefit[]; nota: string | null };
   contratos: { titulo: string; itens: readonly string[] };

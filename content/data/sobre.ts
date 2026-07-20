@@ -12,18 +12,15 @@ export const SOBRE = {
 
   mvv: {
     missao:
-      'Proteger famílias, patrimônios e empresas por meio de soluções jurídicas estratégicas, personalizadas e tecnicamente seguras, com um atendimento próximo, transparente e humanizado.',
+      'Proteger o que cada cliente construiu — a família, o patrimônio, a empresa — com estratégia jurídica clara, tecnicamente segura e um atendimento que trata cada história como única.',
     visao:
-      'Ser reconhecido nacionalmente como um escritório de advocacia estratégica e multidisciplinar, com especialização técnica em cada área de atuação, capaz de oferecer segurança jurídica e soluções completas para seus clientes.',
+      'Ser o escritório que famílias e empresas de todo o Brasil escolhem quando o assunto é sério: referência em advocacia estratégica que une técnica, tecnologia e proximidade para transformar o complicado em claro.',
     valores: [
-      'Ética e transparência em todas as relações',
-      'Excelência técnica e atualização constante',
-      'Atendimento humano, próximo e personalizado',
-      'Comprometimento com os interesses de cada cliente',
-      'Estratégia, prevenção e visão de longo prazo',
-      'Clareza e simplicidade na comunicação',
-      'Inovação, tecnologia e eficiência',
-      'Responsabilidade e compromisso com a melhor solução para cada caso',
+      'Ética e transparência, sempre — sem letras miúdas',
+      'Excelência técnica com comunicação simples, sem juridiquês',
+      'Proximidade real: cada cliente é único, nunca apenas mais um processo',
+      'Estratégia e prevenção, com visão de longo prazo',
+      'Inovação e tecnologia a serviço de quem confia no escritório',
     ],
   },
 

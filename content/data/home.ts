@@ -5,7 +5,7 @@ import type { FaqItem } from '@/lib/schema';
 export const HOME = {
   hero: {
     headline: 'Estratégia jurídica para proteger tudo o que você construiu.',
-    sub: 'O Fava e Vitorino une técnica, tecnologia e atendimento humano para oferecer soluções jurídicas personalizadas para famílias, patrimônios e empresas — com clareza do início ao fim.',
+    sub: 'Sua família, sua empresa, seu legado. O Fava e Vitorino une técnica, tecnologia e atendimento humano para oferecer soluções jurídicas personalizadas para famílias, patrimônios e empresas — com clareza do início ao fim.',
     ctaPrimario: 'Fale com o escritório no WhatsApp',
     ctaSecundario: 'Conheça nossos serviços',
     whatsappMessage: 'Olá! Vim pelo site do Fava e Vitorino e gostaria de uma orientação.',
@@ -64,7 +64,7 @@ export const HOME = {
   },
 
   stats: [
-    { valor: '+1.000', label: 'clientes atendidos em demandas de Direito do Consumidor e Bancário' },
+    { valor: '+2 mil', label: 'clientes atendidos pelo Fava e Vitorino' },
     { valor: '100% digital', label: 'atuação nacional com estrutura completa' },
     { valor: 'Visual Law', label: 'pioneiros na aplicação em relatórios e documentos jurídicos' },
   ],
@@ -72,6 +72,12 @@ export const HOME = {
   depoimentos: {
     titulo: 'O que dizem nossos clientes',
     itens: PENDING.depoimentos,
+  },
+
+  localizacao: {
+    titulo: 'Nosso escritório em Curitiba',
+    nota: 'Atendimento presencial somente com hora marcada.',
+    botao: 'Como chegar',
   },
 
   faq: {
@@ -109,6 +115,6 @@ export const HOME = {
     titulo: 'Sua situação merece atenção especializada.',
     texto:
       'Fale com o Fava e Vitorino e receba uma orientação clara, sem compromisso, sobre o melhor caminho para o seu caso.',
-    botaoPrimario: 'Falar no WhatsApp',
+    botaoPrimario: 'Atendimento 24 horas',
   },
 } as const;

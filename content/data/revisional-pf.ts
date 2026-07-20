@@ -9,15 +9,14 @@ export const REVISIONAL_PF = {
   },
 
   hero: {
-    overline: 'Revisional bancária — Pessoa física',
-    headline: 'Você sabe exatamente o que o banco está cobrando no seu contrato?',
+    headline: 'Você pode estar pagando mais do que deve ao seu banco. Descubra gratuitamente.',
     sub: 'Muitos contratos de crédito trazem juros, tarifas e encargos que podem estar acima do permitido. A revisional bancária analisa cada valor cobrado e, quando há irregularidade, busca a correção — para que você pague apenas o que é devido.',
-    ctaPrimario: 'Fale com o escritório no WhatsApp',
+    ctaPrimario: 'Faça a análise gratuita do seu contrato',
     ctaSecundario: 'Entenda como funciona ↓',
   },
 
   dores: {
-    titulo: 'Se você sente que paga, paga, mas a dívida não diminui — pode não ser impressão.',
+    titulo: 'Você paga todo mês e sente que a dívida nunca diminui? Isso pode não ser impressão sua.',
     intro:
       'Nem sempre os valores cobrados no seu contrato bancário estão corretos. Veja os problemas mais comuns que encontramos ao analisar contratos de clientes:',
     itens: [
@@ -63,8 +62,8 @@ export const REVISIONAL_PF = {
     titulo: 'Como funciona o processo',
     itens: [
       { titulo: 'Atendimento inicial', desc: 'Você entra em contato e nos conta sua situação, sem custo e sem compromisso.' },
-      { titulo: 'Envio dos documentos e análise técnica', desc: 'Você nos envia o contrato e os comprovantes, e fazemos a análise detalhada de juros, tarifas, encargos e composição da dívida.' },
-      { titulo: 'Reunião + relatório em Visual Law', desc: 'Constatada a existência de cobranças abusivas, agendamos uma reunião e apresentamos um relatório claro e visual, mostrando o que foi identificado e os caminhos possíveis.' },
+      { titulo: 'Envio dos documentos e análise técnica', desc: 'Você nos envia o contrato e os comprovantes, e fazemos gratuitamente a análise detalhada de juros, tarifas, encargos e composição da dívida.' },
+      { titulo: 'Reunião + relatório visual e fácil de entender', desc: 'Constatada a existência de cobranças abusivas, agendamos uma reunião e apresentamos um relatório claro e visual, mostrando o que foi identificado e os caminhos possíveis.' },
       { titulo: 'Definição da estratégia', desc: 'Juntos, decidimos a melhor via para o seu caso (administrativa ou judicial).' },
       { titulo: 'Acompanhamento do caso', desc: 'Conduzimos a demanda e mantemos você informado em cada etapa, com transparência do início ao fim.' },
     ],
@@ -122,9 +121,9 @@ export const REVISIONAL_PF = {
   },
 
   ctaFinal: {
-    titulo: 'Não entende o que o banco está cobrando?',
-    texto: 'Envie seus documentos e receba uma análise técnica do seu contrato, com atendimento humano e transparente do início ao fim.',
-    botaoPrimario: 'Falar com o escritório no WhatsApp',
+    titulo: 'Não entende o que seu banco está cobrando? Faça sua análise gratuitamente.',
+    texto: 'Envie seus documentos e receba, sem custo, uma análise técnica do seu contrato — com atendimento humano e transparente do início ao fim.',
+    botaoPrimario: 'Fazer minha análise gratuita',
     botaoSecundario: 'Agendar meu atendimento',
   },
 } as const;

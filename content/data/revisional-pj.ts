@@ -9,10 +9,9 @@ export const REVISIONAL_PJ = {
   },
 
   hero: {
-    overline: 'Revisional bancária — Empresas',
-    headline: 'Sua empresa pode estar pagando mais do que deve ao banco.',
+    headline: 'Sua empresa pode estar pagando mais do que deve ao banco. Faça um diagnóstico gratuito dos seus contratos.',
     sub: 'Empresas que operam com várias linhas de crédito nem sempre têm tempo ou estrutura para conferir, contrato a contrato, se os valores cobrados estão corretos. A revisional bancária empresarial analisa juros, encargos e tarifas para reequilibrar os contratos e devolver previsibilidade ao fluxo de caixa.',
-    ctaPrimario: 'Solicitar diagnóstico dos contratos',
+    ctaPrimario: 'Faça o diagnóstico gratuito dos seus contratos',
     ctaSecundario: 'Falar no WhatsApp',
   },
 
@@ -67,8 +66,8 @@ export const REVISIONAL_PJ = {
     itens: [
       { titulo: 'Atendimento inicial', desc: 'Conversamos com a empresa para entender o cenário financeiro e as linhas de crédito envolvidas, sem custo e sem compromisso.' },
       { titulo: 'Diagnóstico e envio dos contratos', desc: 'A empresa nos envia os contratos, extratos e demonstrativos, e fazemos um diagnóstico das operações de crédito.' },
-      { titulo: 'Análise técnica dos contratos', desc: 'Verificamos juros, encargos, tarifas e cláusulas de cada operação, identificando possíveis irregularidades.' },
-      { titulo: 'Reunião + relatório em Visual Law', desc: 'Constatada a existência de cobranças abusivas, agendamos uma reunião e apresentamos um relatório claro e visual, com o que foi identificado e os caminhos possíveis.' },
+      { titulo: 'Análise técnica dos contratos', desc: 'Verificamos gratuitamente juros, encargos, tarifas e cláusulas de cada operação, identificando possíveis irregularidades.' },
+      { titulo: 'Reunião + relatório visual e fácil de entender', desc: 'Constatada a existência de cobranças abusivas, agendamos uma reunião e apresentamos um relatório claro e visual, com o que foi identificado e os caminhos possíveis.' },
       { titulo: 'Definição da estratégia jurídica', desc: 'Juntos, definimos a melhor via para a empresa (administrativa ou judicial), considerando o impacto no fluxo de caixa.' },
       { titulo: 'Atuação e acompanhamento', desc: 'Conduzimos a demanda e mantemos a empresa informada em cada etapa, com transparência do início ao fim.' },
     ],
@@ -126,9 +125,9 @@ export const REVISIONAL_PJ = {
   },
 
   ctaFinal: {
-    titulo: 'Sua empresa pode estar pagando mais do que deve ao banco.',
-    texto: 'Envie seus contratos e receba um diagnóstico técnico das operações de crédito da empresa, com relatório claro em Visual Law.',
-    botaoPrimario: 'Solicitar diagnóstico dos contratos',
+    titulo: 'Não entende o que o banco está cobrando da sua empresa? Faça o diagnóstico gratuito dos contratos.',
+    texto: 'Envie seus contratos e receba, sem custo, um diagnóstico técnico das operações de crédito da empresa, com relatório claro em Visual Law.',
+    botaoPrimario: 'Fazer o diagnóstico gratuito',
     botaoSecundario: 'Falar no WhatsApp',
   },
 } as const;

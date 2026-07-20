@@ -28,7 +28,8 @@ export function StatValue({ valor }: { valor: string }) {
   const [display, setDisplay] = useState(valor);
 
   useEffect(() => {
-    if (target === null) return;
+    // Números de um dígito ("+2 mil") não contam: 0→1→2 vira flicker, não efeito.
+    if (target === null || target < 10) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const el = ref.current;

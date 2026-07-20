@@ -80,6 +80,15 @@
   --transition-fast: 160ms ease;
 }
 
+/* Telas estreitas: títulos fluidos para caixa-alta longa ("GRATUITAMENTE.")
+   caber sem estourar. 7.5vw = 36px em 480px — contínuo com os valores base. */
+@media (max-width: 480px) {
+  :root {
+    --text-display: 600 clamp(1.5rem, 7.5vw, 2.25rem)/1.2 var(--font-title);
+    --text-h1: 600 clamp(1.5rem, 7.5vw, 2.25rem)/1.2 var(--font-title);
+  }
+}
+
 /* ==========================================================================
    Reset e base
    ========================================================================== */
@@ -104,6 +113,7 @@ body {
   font: var(--text-body-md);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 img,
@@ -113,6 +123,13 @@ svg {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+/* Palavras mais largas que a linha quebram em vez de estourar o layout */
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
 }
 
 button,
@@ -215,6 +232,12 @@ ol[role='list'] {
   align-items: center;
 }
 
+/* Itens podem encolher abaixo do min-content (palavras longas quebram via
+   overflow-wrap em vez de alargar a coluna) */
+.split > * {
+  min-width: 0;
+}
+
 @media (min-width: 900px) {
   .split {
     grid-template-columns: 1fr 1fr;
@@ -230,7 +253,8 @@ ol[role='list'] {
   display: inline-flex;
 }
 
-@media (min-width: 1000px) {
+/* 1140px: abaixo disso a fila (wordmark + 6 links + CTA) não cabe e transborda */
+@media (min-width: 1140px) {
   .site-nav-desktop {
     display: flex;
   }

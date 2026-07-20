@@ -72,7 +72,7 @@ export function GoogleReviews({ titulo }: { titulo: string }) {
   return (
     <>
       <Reveal>
-        <SectionHeading overline="Prova social" title={titulo} />
+        <SectionHeading title={titulo} />
       </Reveal>
 
       <Reveal delay={100}>

@@ -8,6 +8,7 @@ import { AreaGrid } from '@/components/sections/AreaGrid';
 import { FeatureList } from '@/components/sections/FeatureList';
 import { StatsBand } from '@/components/sections/StatsBand';
 import { GoogleReviews } from '@/components/sections/GoogleReviews';
+import { LocationSection } from '@/components/sections/LocationSection';
 import { FaqSection } from '@/components/sections/FaqSection';
 import { CtaSection } from '@/components/sections/CtaSection';
 import { Reveal } from '@/components/sections/Reveal';
@@ -81,7 +82,7 @@ export default function Home() {
               }}
             >
               <Image
-                src="/images/equipe/dupla-1.webp"
+                src="/images/equipe/dupla-3.webp"
                 alt="Nathalia Fava e Jessica Vitorino, sócias-fundadoras do Fava e Vitorino Advocacia"
                 fill
                 sizes="(min-width: 900px) 480px, 100vw"
@@ -110,7 +111,11 @@ export default function Home() {
       <Section tone="areia">
         <GoogleReviews titulo={HOME.depoimentos.titulo} />
         <div style={{ marginTop: 'var(--space-9)' }}>
-          <FaqSection titulo={HOME.faq.titulo} itens={HOME.faq.itens} />
+          <LocationSection
+            titulo={HOME.localizacao.titulo}
+            nota={HOME.localizacao.nota}
+            botao={HOME.localizacao.botao}
+          />
         </div>
         <div style={{ marginTop: 'var(--space-9)' }}>
           <CtaSection
@@ -122,6 +127,9 @@ export default function Home() {
               </WhatsAppCta>
             }
           />
+        </div>
+        <div style={{ marginTop: 'var(--space-9)' }}>
+          <FaqSection titulo={HOME.faq.titulo} itens={HOME.faq.itens} />
         </div>
       </Section>
 

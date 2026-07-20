@@ -32,14 +32,14 @@ export function SiteHeader() {
       <div
         style={{
           maxWidth: 'var(--container-max)', margin: '0 auto', padding: '14px 24px',
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24,
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16,
         }}
       >
         <Link href="/" style={{ textDecoration: 'none' }}>
           <SiteWordmark />
         </Link>
 
-        <nav className="site-nav-desktop" aria-label="Navegação principal" style={{ alignItems: 'center', gap: 'var(--space-6)' }}>
+        <nav className="site-nav-desktop" aria-label="Navegação principal" style={{ alignItems: 'center', gap: 20 }}>
           {NAV_LINKS.map((l) => {
             const active = l.href === '/' ? pathname === '/' : pathname.startsWith(l.href);
             return (

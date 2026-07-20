@@ -96,7 +96,7 @@ export default function SobrePage() {
             texto={SOBRE.cta.texto}
             actions={
               <WhatsAppCta message={SOBRE.cta.whatsappMessage} location="cta_sobre" variant="gold" size="lg">
-                Falar no WhatsApp
+                Atendimento 24 horas
               </WhatsAppCta>
             }
           />
