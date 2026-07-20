@@ -27,10 +27,19 @@
       "WebFetch(domain:www.google.com)",
       "PowerShell($conns = Get-NetTCPConnection -LocalPort 3000,3001,3002 -State Listen -ErrorAction SilentlyContinue; if \\($conns\\) { $conns | Select-Object LocalPort, OwningProcess | ForEach-Object { $p = Get-Process -Id $_.OwningProcess -ErrorAction SilentlyContinue; \"$\\($_.LocalPort\\) -> PID $\\($_.OwningProcess\\) \\($\\($p.ProcessName\\)\\)\" } } else { \"nenhum servidor nas portas 3000-3002\" })",
       "PowerShell($deadline = \\(Get-Date\\).AddSeconds\\(30\\); do { Start-Sleep -Seconds 2; $up = Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue } until \\($up -or \\(Get-Date\\) -gt $deadline\\); if \\($up\\) { \"servidor no ar na porta 3000\" } else { \"servidor ainda não subiu\" })",
-      "PowerShell(npx tsc --noEmit 2>$null; echo \"exit: $LASTEXITCODE\")"
+      "PowerShell(npx tsc --noEmit 2>$null; echo \"exit: $LASTEXITCODE\")",
+      "PowerShell(npm run start)",
+      "PowerShell(npx next start -p 3100)",
+      "PowerShell(Copy-Item \"Fotos\\\\Fotos das duas advogadas\\\\C�pia-de-IMG_3970.webp\" \"public\\\\images\\\\equipe\\\\dupla-3.webp\")",
+      "PowerShell(git -C \"c:\\\\Users\\\\User\\\\Desktop\\\\Site - Fava e Vitorino\" diff -- app/page.tsx)",
+      "PowerShell(git add app/ components/ content/ public/images/equipe/dupla-3.webp \"Fotos/Fotos das duas advogadas\")",
+      "PowerShell(git commit -F \"C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-User-Desktop-Site---Fava-e-Vitorino\\\\cbd35e2c-9f1a-4395-a4a0-8fcebf9cec55\\\\scratchpad\\\\commit-msg.txt\")",
+      "PowerShell(git add .claude/settings.json)",
+      "PowerShell(git commit -m \"Permiss�es locais do Claude Code \\(porta 3100 e pasta Fotos\\)\" -m \"Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>\")"
     ],
     "additionalDirectories": [
-      "c:\\Users\\User\\.claude\\projects\\c--Users-User-Desktop-Site---Fava-e-Vitorino\\memory"
+      "c:\\Users\\User\\.claude\\projects\\c--Users-User-Desktop-Site---Fava-e-Vitorino\\memory",
+      "C:\\Users\\User\\Desktop\\Site - Fava e Vitorino\\Fotos\\Fotos das duas advogadas"
     ]
   }
 }
