@@ -35,7 +35,14 @@
       "PowerShell(git add app/ components/ content/ public/images/equipe/dupla-3.webp \"Fotos/Fotos das duas advogadas\")",
       "PowerShell(git commit -F \"C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-User-Desktop-Site---Fava-e-Vitorino\\\\cbd35e2c-9f1a-4395-a4a0-8fcebf9cec55\\\\scratchpad\\\\commit-msg.txt\")",
       "PowerShell(git add .claude/settings.json)",
-      "PowerShell(git commit -m \"Permiss�es locais do Claude Code \\(porta 3100 e pasta Fotos\\)\" -m \"Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>\")"
+      "PowerShell(git commit -m \"Permiss�es locais do Claude Code \\(porta 3100 e pasta Fotos\\)\" -m \"Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>\")",
+      "Bash(node -e *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3100 --max-time 10)",
+      "Bash(powershell.exe -NoProfile -Command \"Get-CimInstance Win32_Process -Filter 'ProcessId=25200' | Select-Object ProcessId,Name,CommandLine | Format-List\")",
+      "Bash(cd \"c:/Users/User/Desktop/Site - Fava e Vitorino\")",
+      "Bash(echo \"--- COMMIT 1 OK ---\")",
+      "Bash(echo \"--- COMMIT 2 OK ---\")",
+      "Bash(echo \"--- COMMIT 3 OK ---\")"
     ],
     "additionalDirectories": [
       "c:\\Users\\User\\.claude\\projects\\c--Users-User-Desktop-Site---Fava-e-Vitorino\\memory",
