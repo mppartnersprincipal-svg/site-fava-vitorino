@@ -42,6 +42,7 @@ export function CtaSection({ titulo, texto, actions }: CtaSectionProps) {
           {texto}
         </p>
         <div
+          className="cta-actions"
           style={{
             display: 'flex',
             flexWrap: 'wrap',

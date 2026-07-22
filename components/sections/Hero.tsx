@@ -79,7 +79,10 @@ export function Hero({ overline, title, lead, actions }: HeroProps) {
           {lead}
         </p>
         {actions && (
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-4)', marginTop: 'var(--space-2)' }}>
+          <div
+            className="cta-actions"
+            style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-4)', marginTop: 'var(--space-2)' }}
+          >
             {actions}
           </div>
         )}

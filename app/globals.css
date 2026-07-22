@@ -314,6 +314,33 @@ ol[role='list'] {
 .btn-ghost { background: transparent; color: var(--verde-900); border: 1px solid transparent; }
 .btn-ghost:hover { background: rgba(8, 50, 36, 0.06); }
 
+/* CTAs mais compactos e empilhados no mobile (evita a "pílula" gigante) */
+@media (max-width: 560px) {
+  .btn {
+    letter-spacing: 0.08em;
+    gap: 8px;
+    line-height: 1.25;
+    text-align: center;
+  }
+  .btn-sm { padding: 8px 14px; font-size: 11px; }
+  .btn-md { padding: 10px 16px; font-size: 12px; }
+  .btn-lg { padding: 12px 18px; font-size: 12.5px; }
+
+  /* Botões de CTA empilhados, largura total e do mesmo tamanho */
+  .cta-actions {
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+  .cta-actions .btn {
+    width: 100%;
+    /* raio menor evita o oval gigante quando o texto quebra em 2+ linhas */
+    border-radius: var(--radius-lg);
+  }
+}
+
 /* Card interativo — sombra no hover via CSS */
 .card-hover {
   cursor: pointer;

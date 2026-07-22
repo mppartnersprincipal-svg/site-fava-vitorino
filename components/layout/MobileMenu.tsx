@@ -119,7 +119,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
         }}
       >
         <WhatsAppIcon size={18} />
-        Fale com o escritório
+        Fale com nosso time
       </a>
     </div>
   );

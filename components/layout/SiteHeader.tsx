@@ -81,7 +81,7 @@ export function SiteHeader() {
             }}
           >
             <WhatsAppIcon size={16} />
-            Fale com o escritório
+            Fale com nosso time
           </a>
         </nav>
 
