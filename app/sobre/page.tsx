@@ -85,11 +85,23 @@ export default function SobrePage() {
         <Reveal>
           <SectionHeading
             overline="Equipe"
-            title="As advogadas"
+            title="As sócias-fundadoras"
             lead="Sócias-fundadoras que unem técnica jurídica, tecnologia e atendimento próximo."
           />
         </Reveal>
         <TeamGrid membros={SOBRE.equipe} />
+
+        <div style={{ marginTop: 'var(--space-9)' }}>
+          <Reveal>
+            <SectionHeading
+              overline="Nosso time"
+              title="Equipe do escritório"
+              lead="Advogadas que atuam lado a lado com as sócias — técnica sólida, dedicação e atenção individualizada a cada cliente."
+            />
+          </Reveal>
+        </div>
+        <TeamGrid membros={SOBRE.time} />
+
         <div style={{ marginTop: 'var(--space-9)' }}>
           <CtaSection
             titulo={SOBRE.cta.titulo}

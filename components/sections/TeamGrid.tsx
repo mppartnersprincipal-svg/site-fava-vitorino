@@ -5,11 +5,13 @@ import { Reveal } from './Reveal';
 export interface TeamMember {
   nome: string;
   cargo: string;
-  oab: string;
+  /** Papel secundário, ex.: "Controller jurídica". Renderiza um badge adicional. */
+  funcao?: string;
+  oab?: string;
   foto: string;
   fotoAlt: string;
   bio: readonly string[];
-  formacao: string;
+  formacao?: string;
   areas: string;
 }
 
@@ -39,7 +41,8 @@ export function TeamGrid({ membros }: { membros: readonly TeamMember[] }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', padding: 'var(--space-7)' }}>
                 <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap' }}>
                   <Badge>{m.cargo}</Badge>
-                  <Badge tone="sand">{m.oab}</Badge>
+                  {m.funcao && <Badge tone="green">{m.funcao}</Badge>}
+                  {m.oab && <Badge tone="sand">{m.oab}</Badge>}
                 </div>
                 <h3
                   style={{
@@ -58,10 +61,12 @@ export function TeamGrid({ membros }: { membros: readonly TeamMember[] }) {
                     {p}
                   </p>
                 ))}
-                <div>
-                  <span style={labelStyle}>Formação</span>
-                  <p style={{ margin: '6px 0 0', font: 'var(--text-body-sm)', color: 'var(--text-muted)' }}>{m.formacao}</p>
-                </div>
+                {m.formacao && (
+                  <div>
+                    <span style={labelStyle}>Formação</span>
+                    <p style={{ margin: '6px 0 0', font: 'var(--text-body-sm)', color: 'var(--text-muted)' }}>{m.formacao}</p>
+                  </div>
+                )}
                 <div>
                   <span style={labelStyle}>Áreas de atuação</span>
                   <p style={{ margin: '6px 0 0', font: 'var(--text-body-sm)', color: 'var(--text-muted)' }}>{m.areas}</p>
