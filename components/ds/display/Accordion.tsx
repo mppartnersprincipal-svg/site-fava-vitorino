@@ -11,6 +11,8 @@ export interface AccordionProps {
   items?: AccordionItem[];
   /** Abre um item por vez (default true). */
   single?: boolean;
+  /** Exibe numeração dourada ("01", "02"…) antes de cada pergunta. */
+  numbered?: boolean;
 }
 
 const iconBar: CSSProperties = {
@@ -53,7 +55,7 @@ function PlusMinusIcon({ open }: { open: boolean }) {
   );
 }
 
-export function Accordion({ items = [], single = true }: AccordionProps) {
+export function Accordion({ items = [], single = true, numbered = false }: AccordionProps) {
   const [open, setOpen] = useState<Set<number>>(() => new Set());
   const baseId = useId();
   const toggle = (i: number) => {
@@ -63,6 +65,8 @@ export function Accordion({ items = [], single = true }: AccordionProps) {
       return next;
     });
   };
+  // Recuo do conteúdo alinhado ao início da pergunta (número + gap quando numerado)
+  const contentPadLeft = numbered ? 24 + 26 + 16 : 24;
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
       {items.map((it, i) => {
@@ -75,8 +79,11 @@ export function Accordion({ items = [], single = true }: AccordionProps) {
             style={{
               background: 'var(--branco)',
               border: '1px solid ' + (isOpen ? 'var(--accent)' : 'var(--border-subtle)'),
-              borderRadius: 'var(--radius-md)',
-              transition: 'border-color var(--transition-fast)',
+              borderLeft: '3px solid ' + (isOpen ? 'var(--accent)' : 'var(--border-subtle)'),
+              borderRadius: 'var(--radius-lg)',
+              boxShadow: isOpen ? 'var(--shadow-card)' : 'none',
+              transition: 'border-color var(--transition-fast), box-shadow var(--transition-fast)',
+              overflow: 'hidden',
             }}
           >
             <h3 style={{ margin: 0 }}>
@@ -86,21 +93,62 @@ export function Accordion({ items = [], single = true }: AccordionProps) {
                 aria-controls={panelId}
                 onClick={() => toggle(i)}
                 style={{
-                  all: 'unset', boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20,
-                  width: '100%', padding: '22px 24px', cursor: 'pointer',
-                  font: 'var(--text-h3)', letterSpacing: 'var(--tracking-title)', textTransform: 'uppercase',
-                  color: isOpen ? 'var(--text-title)' : 'var(--text-body)',
+                  all: 'unset', boxSizing: 'border-box', display: 'flex', alignItems: 'center', gap: 16,
+                  width: '100%', padding: '20px 24px', cursor: 'pointer',
                 }}
               >
-                {it.title}
+                {numbered && (
+                  <span
+                    aria-hidden="true"
+                    style={{
+                      flex: 'none',
+                      width: 26,
+                      font: '600 0.8125rem/1 var(--font-title)',
+                      letterSpacing: '0.06em',
+                      color: isOpen ? 'var(--accent-text)' : 'var(--text-muted)',
+                      transition: 'color var(--transition-fast)',
+                    }}
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                )}
+                <span
+                  style={{
+                    flex: 1,
+                    font: '600 1rem/1.45 var(--font-title)',
+                    color: isOpen ? 'var(--text-title)' : 'var(--text-body)',
+                    transition: 'color var(--transition-fast)',
+                  }}
+                >
+                  {it.title}
+                </span>
                 <PlusMinusIcon open={isOpen} />
               </button>
             </h3>
-            {isOpen && (
-              <div id={panelId} role="region" aria-labelledby={headerId} style={{ padding: '0 24px 24px', font: 'var(--text-body-md)', color: 'var(--text-muted)' }}>
-                {it.content}
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateRows: isOpen ? '1fr' : '0fr',
+                transition: 'grid-template-rows 240ms ease',
+              }}
+            >
+              <div style={{ overflow: 'hidden' }}>
+                <div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={headerId}
+                  style={{
+                    padding: `4px 24px 22px ${contentPadLeft}px`,
+                    font: 'var(--text-body-md)',
+                    color: 'var(--text-muted)',
+                    visibility: isOpen ? 'visible' : 'hidden',
+                    transition: 'visibility 240ms',
+                  }}
+                >
+                  {it.content}
+                </div>
               </div>
-            )}
+            </div>
           </div>
         );
       })}

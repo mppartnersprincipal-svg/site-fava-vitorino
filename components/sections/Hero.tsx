@@ -3,6 +3,8 @@ import type { ReactNode } from 'react';
 
 export interface HeroProps {
   overline?: string;
+  /** Frase curta acima do título, em tamanho intermediário (entre o display e o body). */
+  tagline?: string;
   title: string;
   lead: string;
   /** CTAs (normalmente WhatsAppCta + ButtonLink outline-on-dark). */
@@ -10,7 +12,7 @@ export interface HeroProps {
 }
 
 /** Hero verde-900 com símbolo da marca em marca d'água (padrão do protótipo do DS). */
-export function Hero({ overline, title, lead, actions }: HeroProps) {
+export function Hero({ overline, tagline, title, lead, actions }: HeroProps) {
   return (
     <section
       style={{
@@ -61,6 +63,18 @@ export function Hero({ overline, title, lead, actions }: HeroProps) {
           >
             {overline}
           </span>
+        )}
+        {tagline && (
+          <p
+            style={{
+              margin: 0,
+              font: '500 clamp(1.125rem, 2.2vw, 1.5rem)/1.45 var(--font-title)',
+              color: 'var(--accent-soft)',
+              maxWidth: 640,
+            }}
+          >
+            {tagline}
+          </p>
         )}
         <h1
           style={{

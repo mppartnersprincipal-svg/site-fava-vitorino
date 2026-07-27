@@ -27,4 +27,12 @@ export const PENDING = {
 
   /** URL do LinkedIn (em branco no briefing). */
   linkedinUrl: null as string | null,
+
+  /**
+   * Foto do prédio/fachada do escritório (como no site antigo) — a cliente vai enviar.
+   * Ao receber: salvar em public/images/escritorio/ (ex.: fachada.webp) e apontar o
+   * caminho aqui (ex.: '/images/escritorio/fachada.webp'). Enquanto null, a seção
+   * "Onde estamos" mantém o fundo areia padrão.
+   */
+  fotoEscritorio: null as string | null,
 } as const;

@@ -20,7 +20,8 @@ export function WhatsAppFloat() {
       style={{
         position: 'fixed', right: 20, bottom: 20, zIndex: 900,
         width: 56, height: 56, borderRadius: '50%',
-        background: 'var(--accent)', color: 'var(--verde-900)',
+        /* Verde oficial do WhatsApp — o botão deve ler como o logotipo do app */
+        background: '#25d366', color: '#ffffff',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         boxShadow: 'var(--shadow-card)',
         opacity: visible ? 1 : 0,
@@ -29,7 +30,7 @@ export function WhatsAppFloat() {
         transition: 'opacity var(--transition-fast), transform var(--transition-fast)',
       }}
     >
-      <WhatsAppIcon size={28} />
+      <WhatsAppIcon size={32} />
     </a>
   );
 }

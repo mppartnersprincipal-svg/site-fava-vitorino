@@ -4,8 +4,9 @@ import type { FaqItem } from '@/lib/schema';
 /** Copy canônica da Home (PRD 1.1). */
 export const HOME = {
   hero: {
+    tagline: 'Sua família, sua empresa, seu legado.',
     headline: 'Estratégia jurídica para proteger tudo o que você construiu.',
-    sub: 'Sua família, sua empresa, seu legado. O Fava e Vitorino une técnica, tecnologia e atendimento humano para oferecer soluções jurídicas personalizadas para famílias, patrimônios e empresas — com clareza do início ao fim.',
+    sub: 'O Fava e Vitorino une técnica, tecnologia e atendimento humano para oferecer soluções jurídicas personalizadas para famílias, patrimônios e empresas — com clareza do início ao fim.',
     ctaPrimario: 'Fale com nosso time no WhatsApp',
     ctaSecundario: 'Conheça nossos serviços',
     whatsappMessage: 'Olá! Vim pelo site do Fava e Vitorino e gostaria de uma orientação.',

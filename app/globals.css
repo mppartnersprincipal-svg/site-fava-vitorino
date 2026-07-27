@@ -270,9 +270,19 @@ ol[role='list'] {
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 800px) {
+/* Intermediário em 2 colunas: dá largura suficiente para e-mail e endereço
+   não quebrarem no meio da palavra */
+@media (min-width: 640px) {
   .footer-grid {
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* 4 colunas só quando há espaço real; Contato leva fração maior para o
+   e-mail (atendimento@favaevitorino.com.br) caber em uma linha */
+@media (min-width: 1080px) {
+  .footer-grid {
+    grid-template-columns: 1.5fr 0.8fr 1.6fr 1.1fr;
   }
 }
 

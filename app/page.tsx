@@ -26,6 +26,7 @@ export default function Home() {
     <>
       <Hero
         overline="Fava e Vitorino Advocacia"
+        tagline={HOME.hero.tagline}
         title={HOME.hero.headline}
         lead={HOME.hero.sub}
         actions={
@@ -108,26 +109,27 @@ export default function Home() {
         <StatsBand stats={HOME.stats} />
       </Section>
 
-      <Section tone="areia">
+      <Section tone="areia" containerStyle={{ paddingBlockEnd: 0 }}>
         <GoogleReviews titulo={HOME.depoimentos.titulo} />
-        <div style={{ marginTop: 'var(--space-9)' }}>
-          <LocationSection
-            titulo={HOME.localizacao.titulo}
-            nota={HOME.localizacao.nota}
-            botao={HOME.localizacao.botao}
-          />
-        </div>
-        <div style={{ marginTop: 'var(--space-9)' }}>
-          <CtaSection
-            titulo={HOME.ctaFinal.titulo}
-            texto={HOME.ctaFinal.texto}
-            actions={
-              <WhatsAppCta message={HOME.hero.whatsappMessage} location="cta_final_home" variant="gold" size="lg">
-                {HOME.ctaFinal.botaoPrimario}
-              </WhatsAppCta>
-            }
-          />
-        </div>
+      </Section>
+
+      {/* Renderiza a própria <section> — recebe a foto do prédio como fundo via PENDING.fotoEscritorio */}
+      <LocationSection
+        titulo={HOME.localizacao.titulo}
+        nota={HOME.localizacao.nota}
+        botao={HOME.localizacao.botao}
+      />
+
+      <Section tone="areia">
+        <CtaSection
+          titulo={HOME.ctaFinal.titulo}
+          texto={HOME.ctaFinal.texto}
+          actions={
+            <WhatsAppCta message={HOME.hero.whatsappMessage} location="cta_final_home" variant="gold" size="lg">
+              {HOME.ctaFinal.botaoPrimario}
+            </WhatsAppCta>
+          }
+        />
         <div style={{ marginTop: 'var(--space-9)' }}>
           <FaqSection titulo={HOME.faq.titulo} itens={HOME.faq.itens} />
         </div>
