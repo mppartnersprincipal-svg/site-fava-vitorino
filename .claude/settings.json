@@ -42,7 +42,17 @@
       "Bash(cd \"c:/Users/User/Desktop/Site - Fava e Vitorino\")",
       "Bash(echo \"--- COMMIT 1 OK ---\")",
       "Bash(echo \"--- COMMIT 2 OK ---\")",
-      "Bash(echo \"--- COMMIT 3 OK ---\")"
+      "Bash(echo \"--- COMMIT 3 OK ---\")",
+      "PowerShell(git fetch origin)",
+      "PowerShell(Resolve-DnsName favaevitorino.com.br -Type A)",
+      "PowerShell(Resolve-DnsName www.favaevitorino.com.br -Type CNAME)",
+      "PowerShell(curl.exe -sI https://favaevitorino.com.br)",
+      "PowerShell(curl.exe -sI https://www.favaevitorino.com.br)",
+      "PowerShell(\"\")",
+      "PowerShell($paths = @\\('/', '/sobre', '/blog', '/contato', '/revisional-bancaria-pf', '/revisional-bancaria-pj', '/sitemap.xml', '/robots.txt'\\); foreach \\($p in $paths\\) { $code = curl.exe -s -o NUL -w \"%{http_code}\" \"https://www.favaevitorino.com.br$p\"; Write-Output \"$code  $p\" })",
+      "Skill(connect-chrome)",
+      "Skill(connect-chrome:*)",
+      "PowerShell(ls \"$env:LOCALAPPDATA\\\\ms-playwright\\\\chromium-1228\"; New-Item -ItemType Junction -Path \"$env:LOCALAPPDATA\\\\ms-playwright\\\\chromium-1208\" -Target \"$env:LOCALAPPDATA\\\\ms-playwright\\\\chromium-1228\" | Out-Null; Test-Path \"$env:LOCALAPPDATA\\\\ms-playwright\\\\chromium-1208\\\\chrome-win64\\\\chrome.exe\")"
     ],
     "additionalDirectories": [
       "c:\\Users\\User\\.claude\\projects\\c--Users-User-Desktop-Site---Fava-e-Vitorino\\memory",
