@@ -59,19 +59,6 @@ export const SOBRE = {
 
   time: [
     {
-      nome: 'Núbia Silva',
-      cargo: 'Advogada',
-      oab: 'OAB/GO nº 64.796',
-      foto: '/images/equipe/nubia-silva.webp',
-      fotoAlt: 'Núbia Silva, advogada do Fava e Vitorino Advocacia',
-      bio: [
-        'Núbia Silva é advogada do Fava e Vitorino, com atuação nas áreas de Direito do Trabalho, Direito Civil e Direito Administrativo.',
-      ],
-      formacao:
-        'Pós-graduada em Direito e Processo do Trabalho e em Licitações e Contratos Administrativos.',
-      areas: 'Direito do Trabalho, Direito Civil e Direito Administrativo.',
-    },
-    {
       nome: 'Nathália Venâncio',
       cargo: 'Advogada',
       funcao: 'Controller jurídica',
