@@ -57,22 +57,6 @@ export const SOBRE = {
     },
   ],
 
-  time: [
-    {
-      nome: 'Nathália Venâncio',
-      cargo: 'Advogada',
-      funcao: 'Controller jurídica',
-      foto: '/images/equipe/nathalia-venancio.webp',
-      fotoAlt: 'Nathália Venâncio, advogada e controller jurídica do Fava e Vitorino Advocacia',
-      bio: [
-        'Nathália Venâncio é advogada do Fava e Vitorino, com atuação nas áreas de Direito do Consumidor e Direito Civil, além de ser especialista em Direito Bancário.',
-        'Atua também como controller jurídica do escritório, contribuindo para a organização, a gestão e o acompanhamento estratégico das demandas jurídicas. Seu trabalho é pautado na ética, na responsabilidade e na atenção individualizada às necessidades de cada cliente.',
-      ],
-      formacao: 'Pós-graduada em Direito Processual Civil. Especialista em Direito Bancário.',
-      areas: 'Direito do Consumidor, Direito Civil e Direito Bancário.',
-    },
-  ],
-
   cta: {
     titulo: 'Sua situação merece atenção especializada.',
     texto:
