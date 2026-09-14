@@ -4,6 +4,7 @@
  */
 export const SITE = {
   nome: 'Fava e Vitorino Advocacia',
+  /** Não exibir no site (pedido da Nathalia): o público vê só `nome`. Mantido para uso interno. */
   razaoSocial: 'FAVA SOCIEDADE DE ADVOCACIA INDIVIDUAL',
   cnpj: '66.047.156/0001-36',
 

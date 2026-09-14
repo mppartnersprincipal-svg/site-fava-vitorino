@@ -16,7 +16,6 @@ export function legalServiceSchema() {
     '@context': 'https://schema.org',
     '@type': 'LegalService',
     name: SITE.nome,
-    alternateName: SITE.razaoSocial,
     url: SITE.url,
     telephone: '+55-62-99281-5221',
     email: SITE.emails[0],

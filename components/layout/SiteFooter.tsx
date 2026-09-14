@@ -81,11 +81,15 @@ export function SiteFooter() {
             display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8,
           }}
         >
-          <span>© {new Date().getFullYear()} {SITE.nome}</span>
+          <span>
+            <strong style={{ font: '600 0.9375rem/1.4 var(--font-title)', color: 'var(--text-on-dark)' }}>
+              {SITE.nome}
+            </strong>
+            {' '}© {new Date().getFullYear()}
+          </span>
           <Link href="/politica-de-privacidade" style={linkStyle}>
             Política de privacidade
           </Link>
-          <span>{SITE.razaoSocial} — CNPJ {SITE.cnpj}</span>
         </div>
       </div>
     </footer>

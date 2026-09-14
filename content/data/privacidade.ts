@@ -22,7 +22,7 @@ export const PRIVACIDADE = {
     {
       titulo: 'Quem é responsável',
       paragrafos: [
-        'O responsável pelo tratamento dos dados deste site é o escritório Fava e Vitorino Advocacia. Os dados de identificação e o e-mail de contato estão no rodapé de todas as páginas.',
+        'O responsável pelo tratamento dos dados deste site é o escritório Fava e Vitorino Advocacia. O e-mail de contato está no rodapé de todas as páginas.',
       ],
     },
     {

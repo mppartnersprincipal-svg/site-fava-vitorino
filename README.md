@@ -34,9 +34,10 @@ npm start      # serve o build
 objetivo único de abrir conversa no WhatsApp (sem formulário, sem captura de e-mail, sem download).
 
 - Copy em `content/data/autismo.ts` — **a equipe edita ali, sem tocar em JSX**.
-- Número próprio da campanha (**diferente** do institucional), definido em `AUTISMO.meta.whatsapp`.
-  Nesta página o botão do header e o do menu mobile também usam esse número (`whatsappForPath`
-  em `lib/whatsapp.ts`); o flutuante do site é trocado pela barra fixa da página.
+- Todos os botões usam o número comercial do escritório (`SITE.whatsapp`). O final 7899 citado no
+  briefing é o WhatsApp particular da Nathalia e **não deve ser usado**. Nesta página as mensagens
+  pré-preenchidas mudam (`whatsappForPath` em `lib/whatsapp.ts`) e o flutuante do site dá lugar à
+  barra fixa da página.
 - Paleta fechada em três cores (verde/dourado/creme), escopada em `.lp` no fim do `globals.css`.
 - Símbolo do autismo: **infinito** (`components/lp/InfinityMark.tsx`). Nunca peça de quebra-cabeça.
 - Regras de conteúdo (nada de promessa de resultado, honorários ou urgência) estão

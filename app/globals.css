@@ -574,10 +574,16 @@ html.no-js .reveal {
   color: var(--lp-verde);
 }
 
-/* Barra fixa de WhatsApp no celular: reserva espaço no fim da página inteira
-   (inclusive o rodapé do site), senão ela cobre a última linha */
+/* Barra fixa de WhatsApp: o rodapé do site ganha altura extra para ela não
+   cobrir a última linha — no celular a barra, no desktop a pílula do canto
+   (tapava o link da política). No rodapé, e não no body, para o fundo verde
+   ir até o fim da página em vez de sobrar uma faixa clara. */
+body:has(.lp-bar) footer {
+  padding-bottom: 96px;
+}
+
 @media (max-width: 767px) {
-  body:has(.lp-bar) {
+  body:has(.lp-bar) footer {
     padding-bottom: 80px;
   }
 }

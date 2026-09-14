@@ -13,6 +13,7 @@
  */
 
 import type { FaqItem } from '@/lib/schema';
+import { SITE } from './site';
 
 export interface Direito {
   /** Slug usado no evento de analytics — é o que dirá qual tema merece página própria. */
@@ -27,11 +28,12 @@ export const AUTISMO = {
   meta: {
     path: '/autismo',
     /**
-     * Número exclusivo desta campanha, definido no briefing (wa.me/5541988797899).
-     * É DIFERENTE do número institucional em content/data/site.ts — quem chega por
-     * aqui cai direto no WhatsApp, sem triagem.
+     * Número comercial do escritório — o mesmo do resto do site.
+     * O briefing previa um número próprio da campanha (final 7899), mas ele é o
+     * WhatsApp particular da Nathalia com os clientes dela; a pedido dela, todos
+     * os botões usam o comercial. Não voltar a usar o 7899.
      */
-    whatsapp: '5541988797899',
+    whatsapp: SITE.whatsapp,
     serviceName: 'Direitos da criança autista',
     title: 'Direitos da criança autista — o que ninguém te contou',
     description:
@@ -88,7 +90,7 @@ export const AUTISMO = {
       {
         id: 'ipva',
         titulo: 'IPVA de volta',
-        beneficio: 'Isenção do imposto do carro e devolução dos anos que já foram pagos.',
+        beneficio: 'Isenção do imposto do carro, e pode caber devolução dos anos que você já pagou.',
         mensagem: 'Oi! Vim pelo site. Queria saber sobre a isenção de IPVA no caso do meu filho.',
       },
       {
