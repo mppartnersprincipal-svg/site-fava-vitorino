@@ -16,34 +16,35 @@ npm start      # serve o build
 | Pasta | Conteúdo |
 |---|---|
 | `app/` | Layout raiz (fonte, tokens, analytics) + `sitemap.ts`/`robots.ts` |
-| `app/(site)/` | Site institucional — Home, `/sobre`, `/revisional-bancaria-pf`, `/revisional-bancaria-pj`, `/blog`, `/contato`, `/politica-de-privacidade`. O layout do grupo traz header, rodapé e botão flutuante |
-| `app/(lp)/` | Landing pages de campanha — `/autismo`. Layout do grupo **sem** header/rodapé/flutuante do site |
+| `app/(site)/` | Páginas do site — Home, `/sobre`, `/revisional-bancaria-pf`, `/revisional-bancaria-pj`, `/autismo`, `/blog`, `/contato`, `/politica-de-privacidade`. O layout do grupo traz header, rodapé e botão flutuante |
 | `components/ds/` | Design system portado (Button, Card, Accordion, Dialog, etc.) |
 | `components/layout/` | Header (menu mobile), Footer, botão flutuante de WhatsApp |
 | `components/sections/` | Seções reutilizáveis (Hero, StepList, FaqSection, CtaSection…) |
-| `components/lp/` | Peças das landing pages (topo, rodapé, CTAs de WhatsApp com UTM, cards) |
+| `components/lp/` | Peças da página /autismo (CTAs de WhatsApp com UTM, barra fixa, cards, ícones, foto em duotone) |
 | `content/data/` | **Toda a copy do site**, tipada — nada de texto hardcoded em JSX |
 | `content/blog/` | Posts em MDX (frontmatter: `title`, `description`, `date`, `author`, `tags`) |
 | `lib/` | `whatsapp.ts`, `analytics.ts` (GA4+Pixel), `utm.ts`, `schema.ts` (JSON-LD), `blog.ts` |
 | `Fotos/` | Assets originais do cliente (fonte — não entra no build) |
 
-> Grupos de rota (`(site)`, `(lp)`) **não aparecem na URL**: `app/(site)/sobre` continua servindo `/sobre`.
+> Grupos de rota como `(site)` **não aparecem na URL**: `app/(site)/sobre` continua servindo `/sobre`.
 
-## Landing pages de campanha
+## Página /autismo
 
-`/autismo` — "Direitos da criança autista". Objetivo único: abrir conversa no WhatsApp
-(sem formulário, sem captura de e-mail, sem download).
+`/autismo` — "Direitos da criança autista". Página do site, no menu como as revisionais, com
+objetivo único de abrir conversa no WhatsApp (sem formulário, sem captura de e-mail, sem download).
 
 - Copy em `content/data/autismo.ts` — **a equipe edita ali, sem tocar em JSX**.
 - Número próprio da campanha (**diferente** do institucional), definido em `AUTISMO.meta.whatsapp`.
+  Nesta página o botão do header e o do menu mobile também usam esse número (`whatsappForPath`
+  em `lib/whatsapp.ts`); o flutuante do site é trocado pela barra fixa da página.
 - Paleta fechada em três cores (verde/dourado/creme), escopada em `.lp` no fim do `globals.css`.
 - Símbolo do autismo: **infinito** (`components/lp/InfinityMark.tsx`). Nunca peça de quebra-cabeça.
 - Regras de conteúdo (nada de promessa de resultado, honorários ou urgência) estão
   documentadas no topo de `content/data/autismo.ts`. Texto que fala de direito passa
   por aprovação do escritório antes de publicar.
 
-Para criar outra LP: nova pasta em `app/(lp)/`, novo arquivo em `content/data/`, reaproveitando
-`components/lp/`.
+Para criar outra página nesse formato: nova pasta em `app/(site)/`, novo arquivo em `content/data/`,
+reaproveitando `components/lp/`, e o link em `components/layout/nav-links.ts`.
 
 ## Publicar um post no blog
 

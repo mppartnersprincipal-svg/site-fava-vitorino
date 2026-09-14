@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 import { NAV_LINKS } from './nav-links';
-import { whatsappUrl, WHATSAPP_DEFAULT_MESSAGE } from '@/lib/whatsapp';
+import { whatsappUrl, whatsappForPath } from '@/lib/whatsapp';
 import { WhatsAppIcon } from '@/components/ds/display/WhatsAppIcon';
 import { trackLead } from '@/lib/analytics';
 
@@ -16,6 +16,7 @@ export interface MobileMenuProps {
 /** Painel de navegação mobile em tela cheia (verde-900), com foco contido, Esc e scroll-lock. */
 export function MobileMenu({ open, onClose }: MobileMenuProps) {
   const pathname = usePathname();
+  const wa = whatsappForPath(pathname);
   const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -102,11 +103,11 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
         })}
       </nav>
       <a
-        href={whatsappUrl(WHATSAPP_DEFAULT_MESSAGE)}
+        href={whatsappUrl(wa.message, wa.phone)}
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => {
-          trackLead('whatsapp_click', { location: 'menu_mobile' });
+          trackLead('whatsapp_click', { location: `menu_mobile${wa.suffix}` });
           onClose();
         }}
         style={{

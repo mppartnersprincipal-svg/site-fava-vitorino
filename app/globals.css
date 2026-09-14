@@ -253,8 +253,8 @@ ol[role='list'] {
   display: inline-flex;
 }
 
-/* 1140px: abaixo disso a fila (wordmark + 6 links + CTA) não cabe e transborda */
-@media (min-width: 1140px) {
+/* 1200px: abaixo disso a fila (wordmark + 7 links + CTA) não cabe e transborda */
+@media (min-width: 1200px) {
   .site-nav-desktop {
     display: flex;
   }
@@ -572,13 +572,13 @@ html.no-js .reveal {
   display: block;
   background: var(--lp-creme);
   color: var(--lp-verde);
-  /* Espaço para a barra fixa de WhatsApp não cobrir o fim do rodapé */
-  padding-bottom: 80px;
 }
 
-@media (min-width: 768px) {
-  .lp {
-    padding-bottom: 0;
+/* Barra fixa de WhatsApp no celular: reserva espaço no fim da página inteira
+   (inclusive o rodapé do site), senão ela cobre a última linha */
+@media (max-width: 767px) {
+  body:has(.lp-bar) {
+    padding-bottom: 80px;
   }
 }
 
@@ -653,19 +653,6 @@ html.no-js .reveal {
 }
 
 /* Topo ------------------------------------------------------------------ */
-
-/* Verde, encostado no hero: logo + headline + subtítulo + botão formam uma
-   primeira tela contínua no celular. O kit de logos é desenhado para fundo
-   escuro (letra creme/dourada) — sobre creme ele sumiria. */
-.lp-header {
-  background: var(--lp-verde);
-  padding: 14px 20px 0;
-}
-
-.lp-header__inner {
-  max-width: 880px;
-  margin-inline: auto;
-}
 
 .lp-hero {
   position: relative;
@@ -1099,6 +1086,13 @@ html.no-js .reveal {
   box-shadow: 0 -4px 16px rgba(8, 50, 36, 0.18);
 }
 
+/* Menu mobile aberto: o header é sticky (z-index 100) e prende o menu nesse
+   contexto de empilhamento, então a barra (900) passaria por cima. Esconde a
+   barra; o botão do menu já leva ao mesmo número nesta página. */
+body:has([aria-label="Menu de navegação"]) .lp-bar {
+  display: none;
+}
+
 /* No desktop vira pílula no canto, sem tapar o conteúdo */
 @media (min-width: 768px) {
   .lp-bar {
@@ -1110,52 +1104,16 @@ html.no-js .reveal {
   }
 }
 
-/* Rodapé ---------------------------------------------------------------- */
+/* Aviso legal (Provimento 205/2021) ------------------------------------ */
 
-.lp-footer {
-  background: var(--lp-creme);
+.lp-aviso {
+  padding-block: 28px;
   border-top: 1px solid var(--lp-fio-escuro);
 }
 
-.lp-footer__grid {
-  display: grid;
-  gap: 24px;
-  margin-bottom: 28px;
-}
-
-@media (min-width: 700px) {
-  .lp-footer__grid {
-    grid-template-columns: 1.2fr 1fr 1fr;
-  }
-}
-
-.lp-footer__titulo {
-  display: block;
-  margin-bottom: 10px;
-  font: var(--text-overline);
-  letter-spacing: var(--tracking-overline);
-  text-transform: uppercase;
-  color: var(--lp-verde);
-}
-
-.lp-footer__linha {
-  display: block;
-  margin-bottom: 6px;
-  font: var(--text-body-sm);
-  color: var(--lp-verde-72);
-  text-decoration: none;
-  overflow-wrap: anywhere;
-}
-
-a.lp-footer__linha {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.lp-footer__aviso {
+.lp-aviso__texto {
   margin: 0;
-  padding-top: 20px;
-  border-top: 1px solid var(--lp-fio-escuro);
+  max-width: 72ch;
   font: var(--text-body-sm);
   color: var(--lp-verde-72);
 }

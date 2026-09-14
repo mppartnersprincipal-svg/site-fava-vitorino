@@ -5,8 +5,6 @@ import { GOOGLE_REVIEWS } from '@/content/data/reviews';
 import { JsonLd } from '@/components/analytics/JsonLd';
 import { PixelViewContent } from '@/components/analytics/PixelViewContent';
 import { faqPageSchema, serviceSchema } from '@/lib/schema';
-import { LpHeader } from '@/components/lp/LpHeader';
-import { LpFooter } from '@/components/lp/LpFooter';
 import { LpWhatsAppCta } from '@/components/lp/LpWhatsAppCta';
 import { LpWhatsAppBar } from '@/components/lp/LpWhatsAppBar';
 import { DireitoCard } from '@/components/lp/DireitoCard';
@@ -46,7 +44,6 @@ function XMark() {
 export default function AutismoPage() {
   return (
     <div className="lp">
-      <LpHeader />
 
       {/* 01. Topo — cabe na primeira tela do celular */}
       <section className="lp-hero">
@@ -220,7 +217,12 @@ export default function AutismoPage() {
         </div>
       </section>
 
-      <LpFooter aviso={rodape.aviso} />
+      {/* Aviso obrigatório do Provimento 205/2021 — o rodapé do site não o traz */}
+      <section className="lp-section">
+        <div className="lp-container lp-aviso">
+          <p className="lp-aviso__texto">{rodape.aviso}</p>
+        </div>
+      </section>
 
       <LpWhatsAppBar
         phone={meta.whatsapp}

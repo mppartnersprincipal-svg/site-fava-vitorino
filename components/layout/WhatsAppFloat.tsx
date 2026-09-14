@@ -1,13 +1,20 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { useScrolled } from './useScrolled';
 import { whatsappUrl, WHATSAPP_DEFAULT_MESSAGE } from '@/lib/whatsapp';
 import { trackLead } from '@/lib/analytics';
 import { WhatsAppIcon } from '@/components/ds/display/WhatsAppIcon';
+import { AUTISMO } from '@/content/data/autismo';
 
 /** Botão flutuante de WhatsApp — aparece após ~400px de scroll. */
 export function WhatsAppFloat() {
+  const pathname = usePathname();
   const visible = useScrolled(400);
+
+  // /autismo tem barra fixa própria (número da campanha, sempre visível).
+  if (pathname.startsWith(AUTISMO.meta.path)) return null;
+
   return (
     <a
       href={whatsappUrl(WHATSAPP_DEFAULT_MESSAGE)}

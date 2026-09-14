@@ -7,12 +7,13 @@ import { SiteWordmark } from './SiteWordmark';
 import { MobileMenu } from './MobileMenu';
 import { NAV_LINKS } from './nav-links';
 import { useScrolled } from './useScrolled';
-import { whatsappUrl, WHATSAPP_DEFAULT_MESSAGE } from '@/lib/whatsapp';
+import { whatsappUrl, whatsappForPath } from '@/lib/whatsapp';
 import { WhatsAppIcon } from '@/components/ds/display/WhatsAppIcon';
 import { trackLead } from '@/lib/analytics';
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const wa = whatsappForPath(pathname);
   const scrolled = useScrolled(8);
   const [menuOpen, setMenuOpen] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
@@ -39,7 +40,7 @@ export function SiteHeader() {
           <SiteWordmark />
         </Link>
 
-        <nav className="site-nav-desktop" aria-label="Navegação principal" style={{ alignItems: 'center', gap: 20 }}>
+        <nav className="site-nav-desktop" aria-label="Navegação principal" style={{ alignItems: 'center', gap: 16 }}>
           {NAV_LINKS.map((l) => {
             const active = l.href === '/' ? pathname === '/' : pathname.startsWith(l.href);
             return (
@@ -55,6 +56,7 @@ export function SiteHeader() {
                   color: active || hovered === l.href ? 'var(--verde-900)' : 'var(--text-muted)',
                   borderBottom: '2px solid ' + (active ? 'var(--accent)' : 'transparent'),
                   paddingBottom: 4,
+                  whiteSpace: 'nowrap',
                   transition: 'color var(--transition-fast)',
                 }}
               >
@@ -63,10 +65,10 @@ export function SiteHeader() {
             );
           })}
           <a
-            href={whatsappUrl(WHATSAPP_DEFAULT_MESSAGE)}
+            href={whatsappUrl(wa.message, wa.phone)}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackLead('whatsapp_click', { location: 'header' })}
+            onClick={() => trackLead('whatsapp_click', { location: `header${wa.suffix}` })}
             onMouseEnter={() => setHovered('cta')}
             onMouseLeave={() => setHovered(null)}
             style={{
