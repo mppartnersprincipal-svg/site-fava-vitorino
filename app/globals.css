@@ -253,8 +253,8 @@ ol[role='list'] {
   display: inline-flex;
 }
 
-/* 1200px: abaixo disso a fila (wordmark + 7 links + CTA) não cabe e transborda */
-@media (min-width: 1200px) {
+/* 1140px: abaixo disso a fila (wordmark + 6 links + CTA) não cabe e transborda */
+@media (min-width: 1140px) {
   .site-nav-desktop {
     display: flex;
   }

@@ -11,6 +11,9 @@ import { whatsappUrl, whatsappForPath } from '@/lib/whatsapp';
 import { WhatsAppIcon } from '@/components/ds/display/WhatsAppIcon';
 import { trackLead } from '@/lib/analytics';
 
+/** Contato fica fora do header desktop para o menu caber; segue no menu mobile e no rodapé. */
+const HEADER_LINKS = NAV_LINKS.filter((l) => l.href !== '/contato');
+
 export function SiteHeader() {
   const pathname = usePathname();
   const wa = whatsappForPath(pathname);
@@ -36,12 +39,13 @@ export function SiteHeader() {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16,
         }}
       >
-        <Link href="/" style={{ textDecoration: 'none' }}>
+        {/* flex: none — a logo nunca encolhe; se o menu não couber, quem cede é o menu */}
+        <Link href="/" style={{ textDecoration: 'none', flex: 'none' }}>
           <SiteWordmark />
         </Link>
 
-        <nav className="site-nav-desktop" aria-label="Navegação principal" style={{ alignItems: 'center', gap: 16 }}>
-          {NAV_LINKS.map((l) => {
+        <nav className="site-nav-desktop" aria-label="Navegação principal" style={{ alignItems: 'center', gap: 20 }}>
+          {HEADER_LINKS.map((l) => {
             const active = l.href === '/' ? pathname === '/' : pathname.startsWith(l.href);
             return (
               <Link
