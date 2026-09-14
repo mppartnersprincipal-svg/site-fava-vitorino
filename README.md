@@ -15,14 +15,35 @@ npm start      # serve o build
 
 | Pasta | Conteúdo |
 |---|---|
-| `app/` | Rotas: Home, `/sobre`, `/revisional-bancaria-pf`, `/revisional-bancaria-pj`, `/blog`, `/contato` + `sitemap.ts`/`robots.ts` |
+| `app/` | Layout raiz (fonte, tokens, analytics) + `sitemap.ts`/`robots.ts` |
+| `app/(site)/` | Site institucional — Home, `/sobre`, `/revisional-bancaria-pf`, `/revisional-bancaria-pj`, `/blog`, `/contato`, `/politica-de-privacidade`. O layout do grupo traz header, rodapé e botão flutuante |
+| `app/(lp)/` | Landing pages de campanha — `/autismo`. Layout do grupo **sem** header/rodapé/flutuante do site |
 | `components/ds/` | Design system portado (Button, Card, Accordion, Dialog, etc.) |
 | `components/layout/` | Header (menu mobile), Footer, botão flutuante de WhatsApp |
 | `components/sections/` | Seções reutilizáveis (Hero, StepList, FaqSection, CtaSection…) |
+| `components/lp/` | Peças das landing pages (topo, rodapé, CTAs de WhatsApp com UTM, cards) |
 | `content/data/` | **Toda a copy do site**, tipada — nada de texto hardcoded em JSX |
 | `content/blog/` | Posts em MDX (frontmatter: `title`, `description`, `date`, `author`, `tags`) |
-| `lib/` | `whatsapp.ts`, `analytics.ts` (GA4+Pixel), `schema.ts` (JSON-LD), `blog.ts` |
+| `lib/` | `whatsapp.ts`, `analytics.ts` (GA4+Pixel), `utm.ts`, `schema.ts` (JSON-LD), `blog.ts` |
 | `Fotos/` | Assets originais do cliente (fonte — não entra no build) |
+
+> Grupos de rota (`(site)`, `(lp)`) **não aparecem na URL**: `app/(site)/sobre` continua servindo `/sobre`.
+
+## Landing pages de campanha
+
+`/autismo` — "Direitos da criança autista". Objetivo único: abrir conversa no WhatsApp
+(sem formulário, sem captura de e-mail, sem download).
+
+- Copy em `content/data/autismo.ts` — **a equipe edita ali, sem tocar em JSX**.
+- Número próprio da campanha (**diferente** do institucional), definido em `AUTISMO.meta.whatsapp`.
+- Paleta fechada em três cores (verde/dourado/creme), escopada em `.lp` no fim do `globals.css`.
+- Símbolo do autismo: **infinito** (`components/lp/InfinityMark.tsx`). Nunca peça de quebra-cabeça.
+- Regras de conteúdo (nada de promessa de resultado, honorários ou urgência) estão
+  documentadas no topo de `content/data/autismo.ts`. Texto que fala de direito passa
+  por aprovação do escritório antes de publicar.
+
+Para criar outra LP: nova pasta em `app/(lp)/`, novo arquivo em `content/data/`, reaproveitando
+`components/lp/`.
 
 ## Publicar um post no blog
 
@@ -35,6 +56,12 @@ Criar `content/blog/meu-post.mdx` com frontmatter e fazer deploy. A listagem, a 
 - `NEXT_PUBLIC_META_PIXEL_ID` — Meta Pixel (idem)
 
 Eventos disparados: `whatsapp_click` (header, float, heros, CTAs — com `location`), `form_submit` (contato) — ambos também como `Lead` no Pixel — e `ViewContent` nas páginas de serviço.
+
+Nas landing pages, o `location` identifica a posição do botão (`hero_autismo`, `direitos_autismo`,
+`card_direito_autismo`, `final_autismo`, `float_autismo`) e os cards de direito disparam também
+`direito_click` com o slug do tema — é o dado que diz qual tema merece página própria depois.
+As UTMs da URL são capturadas em `lib/utm.ts`, entram em todos os eventos e viajam como uma
+linha de origem no fim da mensagem pré-preenchida do WhatsApp.
 
 ## Deploy (Vercel)
 
@@ -55,6 +82,9 @@ Falta coletar com o escritório:
 5. URL do Facebook (e LinkedIn, se houver)
 6. IDs do GA4 e do Meta Pixel
 7. Substituir os 2 posts de exemplo do blog por conteúdo revisado
+8. Endereço completo da sede de Goiânia (a LP `/autismo` cita "Curitiba e Goiânia")
+9. PDF do guia "Direitos da criança autista" — fonte do bloco "Como funciona a conversa"
+10. Aprovação do escritório para `content/data/privacidade.ts` (texto jurídico)
 
 ## Nota de acessibilidade
 

@@ -29,6 +29,22 @@ export const PENDING = {
   linkedinUrl: null as string | null,
 
   /**
+   * Endereço completo da sede de Goiânia. O briefing da LP /autismo cita
+   * "sedes em Curitiba e Goiânia", mas só o endereço de Curitiba foi informado
+   * (content/data/site.ts). Enquanto null, o rodapé da LP cita só Curitiba +
+   * atuação nacional. Formato esperado: mesmo padrão de SITE.endereco.completo.
+   */
+  enderecoGoiania: null as string | null,
+
+  /**
+   * PDF do guia "Direitos da criança autista" (19 páginas), citado no briefing
+   * da LP como fonte do conteúdo e do texto do bloco "Como funciona a conversa".
+   * Não foi entregue junto com o briefing. Ao receber: conferir a redação de
+   * AUTISMO.comoFunciona em content/data/autismo.ts contra o texto do guia.
+   */
+  guiaAutismoPdf: null as string | null,
+
+  /**
    * Foto do prédio/fachada do escritório (como no site antigo) — a cliente vai enviar.
    * Ao receber: salvar em public/images/escritorio/ (ex.: fachada.webp) e apontar o
    * caminho aqui (ex.: '/images/escritorio/fachada.webp'). Enquanto null, a seção

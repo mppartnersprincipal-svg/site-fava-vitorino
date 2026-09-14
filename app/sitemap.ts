@@ -10,6 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/revisional-bancaria-pj`, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${SITE.url}/blog`, changeFrequency: 'weekly', priority: 0.6 },
     { url: `${SITE.url}/contato`, changeFrequency: 'yearly', priority: 0.8 },
+    { url: `${SITE.url}/autismo`, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${SITE.url}/politica-de-privacidade`, changeFrequency: 'yearly', priority: 0.2 },
   ];
 
   const posts: MetadataRoute.Sitemap = getAllPosts().map((p) => ({

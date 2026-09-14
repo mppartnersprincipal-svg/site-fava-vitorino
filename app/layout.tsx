@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import { SITE } from '@/content/data/site';
-import { SiteHeader } from '@/components/layout/SiteHeader';
-import { SiteFooter } from '@/components/layout/SiteFooter';
-import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat';
 import { RevealObserver } from '@/components/sections/RevealObserver';
 import { Analytics } from '@/components/analytics/Analytics';
 import { JsonLd } from '@/components/analytics/JsonLd';
@@ -29,6 +26,12 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Layout raiz — só o que é comum a TODAS as rotas (fonte, tokens, analytics).
+ * O cabeçalho/rodapé do site institucional vive em `app/(site)/layout.tsx`;
+ * as landing pages de campanha usam o cromo enxuto de `app/(lp)/layout.tsx`.
+ * Grupos de rota não alteram URLs — `/sobre` continua `/sobre`.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -41,10 +44,7 @@ export default function RootLayout({
         <a href="#conteudo" className="skip-link">
           Pular para o conteúdo principal
         </a>
-        <SiteHeader />
-        <main id="conteudo">{children}</main>
-        <SiteFooter />
-        <WhatsAppFloat />
+        {children}
         <RevealObserver />
         <Analytics />
         <JsonLd data={legalServiceSchema()} />

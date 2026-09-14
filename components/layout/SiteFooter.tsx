@@ -82,6 +82,9 @@ export function SiteFooter() {
           }}
         >
           <span>© {new Date().getFullYear()} {SITE.nome}</span>
+          <Link href="/politica-de-privacidade" style={linkStyle}>
+            Política de privacidade
+          </Link>
           <span>{SITE.razaoSocial} — CNPJ {SITE.cnpj}</span>
         </div>
       </div>

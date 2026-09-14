@@ -549,3 +549,613 @@ html.no-js .reveal {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ==========================================================================
+   Landing pages de campanha (.lp)
+   Briefing /autismo: "Verde #083224 · Dourado #E5B775 · Creme #EFEBE2.
+   Nenhuma cor fora dessas três." As variações abaixo são alfa DAS MESMAS
+   três cores — não introduzem matiz novo. Escopo em .lp para não vazar
+   para o site institucional.
+   ========================================================================== */
+
+.lp {
+  --lp-verde: #083224;
+  --lp-dourado: #e5b775;
+  --lp-creme: #efebe2;
+
+  --lp-creme-80: rgba(239, 235, 226, 0.8);
+  --lp-creme-65: rgba(239, 235, 226, 0.65);
+  --lp-verde-72: rgba(8, 50, 36, 0.72);
+  --lp-fio-claro: rgba(239, 235, 226, 0.22);
+  --lp-fio-escuro: rgba(8, 50, 36, 0.16);
+
+  display: block;
+  background: var(--lp-creme);
+  color: var(--lp-verde);
+  /* Espaço para a barra fixa de WhatsApp não cobrir o fim do rodapé */
+  padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+  .lp {
+    padding-bottom: 0;
+  }
+}
+
+/* Seções --------------------------------------------------------------- */
+
+.lp-section {
+  background: var(--lp-creme);
+  color: var(--lp-verde);
+}
+
+.lp-section--verde {
+  background: var(--lp-verde);
+  color: var(--lp-creme);
+}
+
+.lp-container {
+  max-width: 880px;
+  margin-inline: auto;
+  padding: clamp(40px, 8vw, 80px) 20px;
+}
+
+/* Tipografia ------------------------------------------------------------ */
+
+.lp-overline {
+  display: block;
+  font: var(--text-overline);
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  color: var(--lp-dourado);
+}
+
+/* Dourado sobre creme não alcança 4.5:1 — em fundo claro o overline é verde */
+.lp-section:not(.lp-section--verde) .lp-overline {
+  color: var(--lp-verde-72);
+}
+
+.lp-h1 {
+  margin: 0;
+  font: 700 clamp(1.75rem, 8vw, 3.25rem) / 1.15 var(--font-title);
+  letter-spacing: -0.01em;
+  color: var(--lp-creme);
+}
+
+.lp-h2 {
+  margin: 0;
+  font: 700 clamp(1.5rem, 6vw, 2.25rem) / 1.2 var(--font-title);
+  letter-spacing: -0.01em;
+  color: inherit;
+}
+
+.lp-lead {
+  margin: 0;
+  font: 400 clamp(1rem, 4.2vw, 1.1875rem) / 1.6 var(--font-body);
+  max-width: 52ch;
+}
+
+.lp-section--verde .lp-lead,
+.lp-hero .lp-lead {
+  color: var(--lp-creme-80);
+}
+
+.lp-section:not(.lp-section--verde) .lp-lead {
+  color: var(--lp-verde-72);
+}
+
+.lp-rule {
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--lp-dourado);
+  border: 0;
+}
+
+/* Topo ------------------------------------------------------------------ */
+
+/* Verde, encostado no hero: logo + headline + subtítulo + botão formam uma
+   primeira tela contínua no celular. O kit de logos é desenhado para fundo
+   escuro (letra creme/dourada) — sobre creme ele sumiria. */
+.lp-header {
+  background: var(--lp-verde);
+  padding: 14px 20px 0;
+}
+
+.lp-header__inner {
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+.lp-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--lp-verde);
+  color: var(--lp-creme);
+}
+
+/* Primeira tela do celular: headline, subtítulo e botão sem rolar */
+.lp-hero .lp-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding-block: clamp(28px, 7vw, 72px);
+}
+
+.lp-hero__mark {
+  position: absolute;
+  right: -6%;
+  bottom: -18%;
+  width: min(62vw, 420px);
+  color: var(--lp-dourado);
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+/* Eco do infinito no fechamento — abre e fecha a página com o mesmo símbolo */
+.lp-cta-mark {
+  position: absolute;
+  left: -10%;
+  top: -14%;
+  width: min(55vw, 360px);
+  color: var(--lp-dourado);
+  opacity: 0.1;
+  pointer-events: none;
+  transform: rotate(-8deg);
+}
+
+/* Frases que ela já ouviu ------------------------------------------------ */
+
+.lp-quotes {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Balão de mensagem recebida: são frases que disseram a ela, não uma lista.
+   O canto inferior esquerdo vivo (4px) é o que dá a leitura de balão — sem
+   pseudo-elemento de rabicho, que quebra em zoom e em fonte grande. */
+.lp-quote {
+  display: inline-flex;
+  gap: 14px;
+  align-items: flex-start;
+  max-width: 34rem;
+  padding: 16px 20px;
+  background: rgba(8, 50, 36, 0.06);
+  border: 1px solid var(--lp-fio-escuro);
+  border-radius: 18px 18px 18px 4px;
+  font: 500 clamp(0.9375rem, 4vw, 1.0625rem) / 1.5 var(--font-body);
+  color: var(--lp-verde);
+}
+
+/* Recuo crescente: a fila de "nãos" que ela foi ouvindo, um depois do outro */
+.lp-quotes > li:nth-child(2) .lp-quote {
+  margin-left: clamp(0px, 3vw, 28px);
+}
+
+.lp-quotes > li:nth-child(3) .lp-quote {
+  margin-left: clamp(0px, 6vw, 56px);
+}
+
+.lp-quotes > li:nth-child(4) .lp-quote {
+  margin-left: clamp(0px, 9vw, 84px);
+}
+
+.lp-quote__x {
+  flex: none;
+  margin-top: 3px;
+  color: var(--lp-verde);
+  opacity: 0.55;
+}
+
+.lp-fecho {
+  margin: 28px 0 0;
+  font: 600 clamp(1rem, 4.4vw, 1.25rem) / 1.5 var(--font-title);
+  color: var(--lp-verde);
+  max-width: 46ch;
+}
+
+/* Cards de direito ------------------------------------------------------ */
+
+.lp-direitos {
+  display: grid;
+  gap: 12px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 760px) {
+  .lp-direitos {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.lp-direito {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  text-align: left;
+  text-decoration: none;
+  background: rgba(239, 235, 226, 0.06);
+  border: 1px solid var(--lp-fio-claro);
+  border-left: 3px solid var(--lp-dourado);
+  border-radius: var(--radius-md);
+  color: var(--lp-creme);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.lp-direito:hover {
+  background: rgba(239, 235, 226, 0.12);
+}
+
+.lp-direito__num {
+  display: block;
+  font: 700 0.6875rem/1 var(--font-title);
+  letter-spacing: 0.16em;
+  color: var(--lp-dourado);
+  opacity: 0.75;
+}
+
+.lp-direito__icone {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--lp-dourado);
+  background: rgba(229, 183, 117, 0.12);
+  color: var(--lp-dourado);
+}
+
+.lp-direito__texto {
+  flex: 1;
+  min-width: 0;
+}
+
+.lp-direito__titulo {
+  display: block;
+  margin-top: 2px;
+  font: 600 clamp(1.0625rem, 4.4vw, 1.1875rem) / 1.35 var(--font-title);
+  color: var(--lp-creme);
+}
+
+.lp-direito__benef {
+  display: block;
+  margin-top: 6px;
+  font: var(--text-body-md);
+  color: var(--lp-creme-65);
+}
+
+.lp-direito__seta {
+  flex: none;
+  margin-left: auto;
+  align-self: center;
+  color: var(--lp-dourado);
+  transition: transform var(--transition-fast);
+}
+
+.lp-direito:hover .lp-direito__seta {
+  transform: translateX(3px);
+}
+
+.lp-nota {
+  margin: 24px 0 0;
+  font: var(--text-body-md);
+  color: var(--lp-creme-80);
+}
+
+/* Passos ---------------------------------------------------------------- */
+
+.lp-steps {
+  position: relative;
+  display: grid;
+  gap: 24px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Fio dourado ligando os passos: no celular desce pela coluna dos números,
+   no desktop atravessa os quatro. Dá a leitura de percurso, não de lista. */
+.lp-steps::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 19px;
+  bottom: 19px;
+  width: 1px;
+  background: linear-gradient(var(--lp-dourado), var(--lp-dourado));
+  opacity: 0.35;
+}
+
+@media (min-width: 760px) {
+  .lp-steps {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+
+  .lp-steps::before {
+    left: 19px;
+    right: 19px;
+    top: 19px;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+}
+
+.lp-step {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+@media (min-width: 760px) {
+  .lp-step {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.lp-step__num {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--lp-dourado);
+  color: var(--lp-verde);
+  font: 700 0.875rem/1 var(--font-title);
+}
+
+.lp-step__titulo {
+  margin: 0;
+  font: 600 1.0625rem/1.3 var(--font-title);
+  color: var(--lp-verde);
+}
+
+.lp-step__desc {
+  margin: 6px 0 0;
+  font: var(--text-body-md);
+  color: var(--lp-verde-72);
+}
+
+/* Foto em duotone -------------------------------------------------------- */
+
+.lp-foto {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin: 0;
+  width: 100%;
+  /* Retrato no desktop; no celular abre para paisagem e economiza rolagem —
+     a página precisa continuar curta. */
+  aspect-ratio: 4 / 3;
+  background: var(--lp-verde);
+  border: 1px solid var(--lp-fio-claro);
+  border-radius: var(--radius-md);
+}
+
+@media (min-width: 760px) {
+  .lp-foto {
+    aspect-ratio: var(--lp-foto-ratio, 4 / 5);
+  }
+}
+
+/* Dessatura quase total, mas não 100%: a pele mantém um resto de tom e os
+   rostos continuam legíveis depois das camadas de cor. */
+.lp-foto__img {
+  filter: grayscale(0.82) contrast(1.12) brightness(0.94);
+}
+
+.lp-foto__verde,
+.lp-foto__dourado {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.lp-foto__verde {
+  background: var(--lp-verde);
+  mix-blend-mode: multiply;
+  opacity: 0.38;
+}
+
+.lp-foto__dourado {
+  background: var(--lp-dourado);
+  mix-blend-mode: soft-light;
+  opacity: 0.3;
+}
+
+.lp-foto__legenda {
+  margin: 10px 0 0;
+  font: var(--text-body-sm);
+  color: var(--lp-creme-65);
+}
+
+/* Quem somos: foto ao lado do texto no desktop, acima no celular ---------- */
+
+.lp-quemsomos {
+  display: grid;
+  gap: 28px;
+  margin-top: 32px;
+  align-items: start;
+}
+
+@media (min-width: 760px) {
+  .lp-quemsomos {
+    grid-template-columns: 320px 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+}
+
+/* Provas ---------------------------------------------------------------- */
+
+.lp-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lp-stat__valor {
+  display: block;
+  font: 700 clamp(1.5rem, 6.5vw, 2.5rem) / 1.05 var(--font-title);
+  color: var(--lp-dourado);
+}
+
+.lp-stat__label {
+  display: block;
+  margin-top: 8px;
+  font: var(--text-body-sm);
+  color: var(--lp-creme-65);
+}
+
+/* FAQ — <details> nativo, sem JS (meta de carregamento < 3s no 4G) -------- */
+
+.lp-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 32px 0 0;
+}
+
+.lp-faq__item {
+  background: var(--lp-verde);
+  color: var(--lp-creme);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.lp-faq__q {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  cursor: pointer;
+  font: 600 1rem/1.4 var(--font-title);
+  list-style: none;
+}
+
+.lp-faq__q::-webkit-details-marker {
+  display: none;
+}
+
+.lp-faq__sinal {
+  flex: none;
+  margin-left: auto;
+  color: var(--lp-dourado);
+  transition: transform var(--transition-fast);
+}
+
+.lp-faq__item[open] .lp-faq__sinal {
+  transform: rotate(45deg);
+}
+
+.lp-faq__a {
+  margin: 0;
+  padding: 0 20px 20px;
+  font: var(--text-body-md);
+  color: var(--lp-creme-65);
+  max-width: 62ch;
+}
+
+/* Barra fixa de WhatsApp ------------------------------------------------- */
+
+.lp-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 20px calc(15px + env(safe-area-inset-bottom));
+  background: var(--lp-dourado);
+  color: var(--lp-verde);
+  font: 700 0.9375rem/1 var(--font-title);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-shadow: 0 -4px 16px rgba(8, 50, 36, 0.18);
+}
+
+/* No desktop vira pílula no canto, sem tapar o conteúdo */
+@media (min-width: 768px) {
+  .lp-bar {
+    left: auto;
+    right: 24px;
+    bottom: 24px;
+    padding: 16px 24px;
+    border-radius: var(--radius-pill);
+  }
+}
+
+/* Rodapé ---------------------------------------------------------------- */
+
+.lp-footer {
+  background: var(--lp-creme);
+  border-top: 1px solid var(--lp-fio-escuro);
+}
+
+.lp-footer__grid {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+@media (min-width: 700px) {
+  .lp-footer__grid {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+}
+
+.lp-footer__titulo {
+  display: block;
+  margin-bottom: 10px;
+  font: var(--text-overline);
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  color: var(--lp-verde);
+}
+
+.lp-footer__linha {
+  display: block;
+  margin-bottom: 6px;
+  font: var(--text-body-sm);
+  color: var(--lp-verde-72);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+a.lp-footer__linha {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lp-footer__aviso {
+  margin: 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--lp-fio-escuro);
+  font: var(--text-body-sm);
+  color: var(--lp-verde-72);
+}
